@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import AppLayout from "../components/AppLayout";
 import styled from "styled-components";
 import VenusTitle from "../components/VenusTitle";
+import Map from "../components/Map";
+import ReviewPreview from "../components/ReviewPreview";
+import MediaPreview from "../components/MediaPreview";
 
 export default function Home() {
-  // const HomeComponent = styled.div`
-  //   width: 100%;
-  // `;
-
   const Section = styled.div`
     width: 100%;
     height: 950px;
-    display: block;
+    display: inline-block;
     align-items: baseline;
     justify-content: center;
     padding-bottom: 90px;
@@ -40,12 +39,16 @@ export default function Home() {
     display: flex;
     align-items: center;
     justify-items: center;
-    width: calc(100% - 600px);
+    justify-content: center;
+    width: calc(100% - 500px);
     height: 620px;
-    border: 1px solid #ddd;
+
     ${(props) => {
       if (props.imageBox) {
-        return "overflow: hidden; box-shadow: 0px 3px 4px #51515157;    border-radius: 10px;";
+        return (
+          "overflow: hidden;" + "box-shadow: 0px 3px 4px #51515157;"
+          // "border-radius: 10px;"
+        );
       }
     }}
   `;
@@ -58,9 +61,10 @@ export default function Home() {
     width: 500px;
     height: 350px;
     background-color: ${(props) => props.theme.darkSpace};
-    border-radius: 0px 10px 10px 0px;
+    //border-radius: 0px 10px 10px 0px;
     font-size: ${(props) => props.theme.fontSize.default};
     padding: 0px 150px;
+    box-shadow: ${(props) => props.theme.boxShadow};
   `;
 
   const Title = styled.div`
@@ -93,11 +97,66 @@ export default function Home() {
     margin-top: 15px;
   `;
 
-  const ImgBox = styled.span`
+  const ImgBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 25%;
-    height: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    margin-right: 30px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      //border-radius: 5px;
+      box-shadow: ${(props) => props.theme.boxShadow};
+    }
+
+    span {
+      position: absolute;
+      font-weight: 400;
+      color: #fff;
+      font-size: ${(props) => props.theme.fontSize.default};
+      text-shadow: 1px 1px 2px #0000005e;
+    }
   `;
 
+  const ReviewArticleBox = styled.div`
+    width: 50%;
+    height: 100%;
+    background-color: #f5f2f0;
+    //border-radius: 5px;
+    box-sizing: border-box;
+    margin-left: 12px;
+    box-shadow: 0px 1px 2px #00000030;
+  `;
+
+  const MediaPreviewBox = styled.div`
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+  `;
+
+  //   const ReviewContactBox = styled.div`
+  //     width: 50%;
+  //     height: 100%;
+  //     margin-left: 12px;
+  // `
+
+  //   const ContactBox = styled.div`
+  //     width: 100%;
+  //     height: 50%;
+  //     border: 1px solid blue;
+  // `;
   return (
     <>
       <Head>
@@ -128,19 +187,49 @@ export default function Home() {
           </Section>
           {/* End of Section1 */}
           <Section>
-            <VenusTitle text="치료 분야" />
+            <VenusTitle text="치료 분야" underline={true}/>
             <ContentsBox>
               <Contents>
-                <ImgBox />
-                <ImgBox />
-                <ImgBox />
-                <ImgBox />
+                <ImgBox>
+                  <img src="/image/home_profession_1.jpg" />
+                  <span>앞니 심미보철</span>
+                </ImgBox>
+                <ImgBox>
+                  <img src="/image/home_profession_2.jpg" />
+                  <span>앞니 잇몸치료</span>
+                </ImgBox>
+                <ImgBox>
+                  <img src="/image/home_profession_3.jpg" />
+                  <span>임플란트</span>
+                </ImgBox>
+                <ImgBox>
+                  <img src="/image/home_profession_4.jpg" />
+                  <span>앞니교정</span>
+                </ImgBox>
               </Contents>
             </ContentsBox>
           </Section>
+          {/* End of Section2 */}
           <Section>
-            <VenusTitle text="오시는 길" />
+            <VenusTitle text="오시는 길" underline={true}/>
+            <ContentsBox>
+              <Contents>
+                <Map />
+                {/* <ReviewContactBox> */}
+                <ReviewArticleBox>
+                  <ReviewPreview />
+                  <MediaPreviewBox>
+                    {["블로그", "유튜브"].map((item) => {
+                      return <MediaPreview mediaType={item} />;
+                    })}
+                    {/* <YoutubePreview /> */}
+                  </MediaPreviewBox>
+                </ReviewArticleBox>
+                {/* </ReviewContactBox> */}
+              </Contents>
+            </ContentsBox>
           </Section>
+          {/* End of Section3 */}
         </div>
       </AppLayout>
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import Navigator from "./Navigator";
 import Footer from "./Footer";
+import RightButton from "./RightButton";
 
 const AppLayout = ({ children }) => {
   return (
@@ -9,7 +10,8 @@ const AppLayout = ({ children }) => {
         <Navigator />
       </div>
       <div className="v_content">{children}</div>
-      {/*<Footer />*/}
+      <Footer />
+      <RightButton />
     </div>
   );
 };
