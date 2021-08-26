@@ -5,10 +5,11 @@ export const darkSpace = "#4a4e69";
 export const middleSpace = "#4A4E69";
 
 export const fontSize = {
-  default: "18px",
-  bold: "30px",
-  navigator: "20px",
-  title: "15px",
+  default: "20px",
+  semiBold: "30px",
+  bold: "40px",
+  navigator: "30px",
+  title: "40px",
 };
 
 export const contentWidth = "950px";

@@ -66,6 +66,10 @@ const Simmi = () => {
       if (props.whiteText) {
         return "background-color: #fff; margin:0px 45px; padding: 7px 30px;";
       }
+
+      if (props.beigeText) {
+        return `background-color: ${props.theme.lightBeige}; margin:0px 45px; padding: 7px 30px;`;
+      }
     }}
   `;
 
@@ -99,11 +103,11 @@ const Simmi = () => {
 
     ${(props) => {
       if (props.bigger) {
-        return `text-align: center; ul:first-child { font-size: 22px; }`;
+        return `text-align: center; ul:first-child { font-size: ${props.theme.fontSize.semiBold}; }`;
       }
 
       if (props.end) {
-        return "text-align: center; font-size: 22px;";
+        return `text-align: center; font-size: ${props.theme.fontSize.semiBold};`;
       }
     }}
   `;
@@ -123,6 +127,25 @@ const Simmi = () => {
 
     img {
       width: 700px;
+    }
+
+    ._div_vertical img {
+      margin: 5px 0px;
+    }
+
+    ._div_horizontal {
+      display: flex;
+      img {
+        margin-right: 5px;
+      }
+    }
+
+    ._div_grid {
+      margin: 5px 0px 5px 0px;
+      //display: flex;
+      img {
+        margin: 0px 5px 50px 5px;
+      }
     }
   `;
 
@@ -279,7 +302,7 @@ const Simmi = () => {
                 <ImageBox>
                   <img src="/image/simmi/1.jpg" />
                 </ImageBox>
-                <TextBox whiteText>
+                <TextBox beigeText>
                   <Text>
                     <ul>
                       <li>
@@ -506,7 +529,7 @@ const Simmi = () => {
                 </Contents>
               </ContentsBox>
             </Section>
-            <Section beige>
+            <Section beige>7
               <ContentsBox>
                 <Contents>
                   <ImageBox vertical image4>
@@ -530,42 +553,63 @@ const Simmi = () => {
                 </Contents>
               </ContentsBox>
             </Section>
+
             <Section beige>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/14.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/14.jpg" />
+                      <img src="/image/simmi/16.jpg" />
+                    </div>
+                  </ImageBox>
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/15.jpg" />
+                      <img src="/image/simmi/17.jpg" />
+                    </div>
                   </ImageBox>
                 </Contents>
               </ContentsBox>
             </Section>
-            <Section beige>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/15.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section beige>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/16.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section beige>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/17.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
+
+            {/* <Section beige> */}
+            {/*  <ContentsBox> */}
+            {/*    <Contents> */}
+            {/*      <ImageBox vertical image4> */}
+            {/*        <img src="/image/simmi/14.jpg" /> */}
+            {/*      </ImageBox> */}
+            {/*    </Contents> */}
+            {/*  </ContentsBox> */}
+            {/* </Section> */}
+            {/* <Section beige> */}
+            {/*  <ContentsBox> */}
+            {/*    <Contents> */}
+            {/*      <ImageBox vertical image4> */}
+            {/*        <img src="/image/simmi/15.jpg" /> */}
+            {/*      </ImageBox> */}
+            {/*    </Contents> */}
+            {/*  </ContentsBox> */}
+            {/* </Section> */}
+            {/* <Section beige> */}
+            {/*  <ContentsBox> */}
+            {/*    <Contents> */}
+            {/*      <ImageBox vertical image4> */}
+            {/*        <img src="/image/simmi/16.jpg" /> */}
+            {/*      </ImageBox> */}
+            {/*    </Contents> */}
+            {/*  </ContentsBox> */}
+            {/* </Section> */}
+            {/* <Section beige> */}
+            {/*  <ContentsBox> */}
+            {/*    <Contents> */}
+            {/*      <ImageBox vertical image4> */}
+            {/*        <img src="/image/simmi/17.jpg" /> */}
+            {/*      </ImageBox> */}
+            {/*    </Contents> */}
+            {/*  </ContentsBox> */}
+            {/* </Section> */}
+
             <Section beige>
               <ContentsBox>
                 <Contents>
@@ -610,18 +654,24 @@ const Simmi = () => {
             <Section white>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/18.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_horizontal">
+                      <img src="/image/simmi/18.jpg" />
+                      <img src="/image/simmi/19.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/19.jpg" />
-                  </ImageBox>
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/18.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/19.jpg" /> */}
+                  {/*      </ImageBox> */}
                 </Contents>
               </ContentsBox>
             </Section>
@@ -644,18 +694,24 @@ const Simmi = () => {
             <Section white>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/20.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_horizontal">
+                      <img src="/image/simmi/20.jpg" />
+                      <img src="/image/simmi/21.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/21.jpg" />
-                  </ImageBox>
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/20.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/21.jpg" /> */}
+                  {/*      </ImageBox> */}
                 </Contents>
               </ContentsBox>
             </Section>
@@ -678,18 +734,24 @@ const Simmi = () => {
             <Section white>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/22.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_horizontal">
+                      <img src="/image/simmi/22.jpg" />
+                      <img src="/image/simmi/23.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/23.jpg" />
-                  </ImageBox>
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/22.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/23.jpg" /> */}
+                  {/*      </ImageBox> */}
                 </Contents>
               </ContentsBox>
             </Section>
@@ -712,18 +774,24 @@ const Simmi = () => {
             <Section white>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/24.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_horizontal">
+                      <img src="/image/simmi/24.jpg" />
+                      <img src="/image/simmi/25.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/25.jpg" />
-                  </ImageBox>
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/24.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/25.jpg" /> */}
+                  {/*      </ImageBox> */}
                 </Contents>
               </ContentsBox>
             </Section>
@@ -747,36 +815,48 @@ const Simmi = () => {
             <Section white>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/26.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/26.jpg" />
+                      <img src="/image/simmi/27.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/27.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/28.jpg" />
+                      <img src="/image/simmi/29.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/28.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/29.jpg" />
-                  </ImageBox>
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/26.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/27.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/28.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/29.jpg" /> */}
+                  {/*      </ImageBox> */}
                 </Contents>
               </ContentsBox>
             </Section>
@@ -799,45 +879,57 @@ const Simmi = () => {
             <Section white>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/30.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/30.jpg" />
+                      <img src="/image/simmi/31.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/31.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/32.jpg" />
+                      <img src="/image/simmi/33.jpg" />
+                    </div>
                   </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/32.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/33.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/34.jpg" />
-                  </ImageBox>
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/30.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/31.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/32.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/33.jpg" /> */}
+                  {/*      </ImageBox> */}
+                  {/*    </Contents> */}
+                  {/*  </ContentsBox> */}
+                  {/* </Section> */}
+                  {/* <Section white> */}
+                  {/*  <ContentsBox> */}
+                  {/*    <Contents> */}
+                  {/*      <ImageBox vertical image4> */}
+                  {/*        <img src="/image/simmi/34.jpg" /> */}
+                  {/*      </ImageBox> */}
                 </Contents>
               </ContentsBox>
             </Section>
@@ -866,85 +958,53 @@ const Simmi = () => {
               </ContentsBox>
             </Section>
 
-            <Section white>
+            <Section beige>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/36.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/36.jpg" />
+                      <img src="/image/simmi/38.jpg" />
+                    </div>
+                  </ImageBox>
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/37.jpg" />
+                      <img src="/image/simmi/39.jpg" />
+                    </div>
                   </ImageBox>
                 </Contents>
               </ContentsBox>
             </Section>
-            <Section white>
+
+            <Section beige>
               <ContentsBox>
                 <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/37.jpg" />
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/40.jpg" />
+                      <img src="/image/simmi/42.jpg" />
+                    </div>
+                  </ImageBox>
+                  <ImageBox vertical>
+                    <div className="_div_grid">
+                      <img src="/image/simmi/41.jpg" />
+                      <img src="/image/simmi/43.jpg" />
+                    </div>
                   </ImageBox>
                 </Contents>
               </ContentsBox>
             </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/38.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/39.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/40.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/41.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/42.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
-            <Section white>
-              <ContentsBox>
-                <Contents>
-                  <ImageBox vertical image4>
-                    <img src="/image/simmi/43.jpg" />
-                  </ImageBox>
-                </Contents>
-              </ContentsBox>
-            </Section>
+
             <Section>
               <ContentsBox>
                 <Contents>
                   <TextBox>
                     <Text>
                       <ul>
-                        <li><em>6개 이상(전악재건)</em></li>
+                        <li>
+                          <em>6개 이상(전악재건)</em>
+                        </li>
                       </ul>
                     </Text>
                   </TextBox>

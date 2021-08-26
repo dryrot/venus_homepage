@@ -44,11 +44,11 @@ const MediaPreview = (props) => {
     align-items: center;
     justify-content: center;
     width: 100%;
-
+    margin-bottom: 10px;
     div {
       width: 40px;
       height: 27px;
-      font-size: 15px;
+      font-size: ${props => props.theme.fontSize.default};
       padding-bottom: 5px;
       border-bottom: 1px solid #adadca;
     }
@@ -56,11 +56,12 @@ const MediaPreview = (props) => {
 
   const MediaThumb = styled.div`
     width: 100%;
-    height: 70%;
-    margin-top: 20px;
+    height: 100%;
+    //margin-top: 20px;
     img {
       width: 100%;
-      height: 100%;
+      //height: 100%;
+      height: 200px;
       object-fit: cover;
       //border-radius: 5px;
       box-shadow: 0px 1px 1px #00000017;

@@ -24,7 +24,10 @@ const ReviewPreview = (props) => {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
+    // TODO 폰트테마 다시 잡을것
+    font-size: ${props => props.theme.fontSize.default};
+    
     .review_seemore {
       margin-top: 25px;
       cursor: pointer;
@@ -38,19 +41,20 @@ const ReviewPreview = (props) => {
   const ReviewTitle = styled.span`
     width: 100px;
     height: 50px;
-    font-size: 15px;
+    //font-size: 15px;
     padding-bottom: 5px;
     margin-bottom: 20px;
     border-bottom: 1px solid #adadca;
   `;
 
   const ReviewListBox = styled.div`
-    margin-top: 30px;
+    margin-top: 30px;    
     ul {
       list-style: none;
       padding-left: 0;
-      border-bottom: 1px solid #fff;
-      box-shadow: 0px 1px 1px #00000017;
+      //border-bottom: 1px solid #fff;
+      //border-bottom: 1px solid #fff;
+      //box-shadow: 0px 1px 1px #00000017;
       cursor: pointer;
     }
 

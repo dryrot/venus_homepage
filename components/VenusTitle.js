@@ -9,7 +9,7 @@ const VenusTitle = (props) => {
     align-items: center;
     flex-shrink: 0;
     width: 100%;
-    margin: 30px 0px 50px 0px;
+    margin: 50px 0px 50px 0px;
   `;
 
   const LogoBox = styled.div`
@@ -19,7 +19,7 @@ const VenusTitle = (props) => {
     //margin-right: 15px;
     //padding-right: 10px;
     margin-right: 10px;
-    ${props => {if(props.underline) 
+    ${props => {if(props.underline ) 
   {
     return "border-bottom: 1px solid ${(props) => props.theme.darkestSpace};"
   }
@@ -55,7 +55,7 @@ const VenusTitle = (props) => {
 
   const Text = styled.span`
     margin-top: 7px;
-    font-size: 30px;
+    font-size: ${props => props.theme.fontSize.bold};
   `;
 
   return (

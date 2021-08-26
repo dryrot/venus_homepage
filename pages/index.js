@@ -5,25 +5,41 @@ import styles from "../styles/Home.module.css";
 import AppLayout from "../components/AppLayout";
 import styled from "styled-components";
 import VenusTitle from "../components/VenusTitle";
-import Map from "../components/Map";
+import Map2 from "../components/Map_v2";
 import ReviewPreview from "../components/ReviewPreview";
 import MediaPreview from "../components/MediaPreview";
+import ClinicInfo from "../components/ClinicInfo";
 
 export default function Home() {
   const Section = styled.div`
     width: 100%;
-    height: 950px;
+    //height: 950px;
     display: inline-block;
     align-items: baseline;
     justify-content: center;
-    padding-bottom: 90px;
+    //padding-bottom: 90px;
     background-color: #fff;
+    height: calc(100vh);
+    ${(props) => {
+      if (props.beige) {
+        return `background-color: ${props.theme.lightBeige};`;
+      }
+    }}
+    
     &:nth-child(odd) {
       background-color: ${(props) => props.theme.lightBeige};
     }
 
     &:first-child {
-      height: 900px;
+      :first-child {
+        height: calc(100vh - 200px);
+
+      }
+      //height: calc(100% - 200px);
+    }
+
+    &:last-child {
+     //margin-bottom: 50px;
     }
   `;
 
@@ -41,8 +57,8 @@ export default function Home() {
     justify-items: center;
     justify-content: center;
     width: calc(100% - 500px);
-    height: 620px;
-
+    //height: 620px;
+    height: calc(100vh - 300px);
     ${(props) => {
       if (props.imageBox) {
         return (
@@ -124,13 +140,13 @@ export default function Home() {
       position: absolute;
       font-weight: 400;
       color: #fff;
-      font-size: ${(props) => props.theme.fontSize.default};
+      font-size: ${(props) => props.theme.fontSize.semiBold};
       text-shadow: 1px 1px 2px #0000005e;
     }
   `;
 
   const ReviewArticleBox = styled.div`
-    width: 50%;
+    width: 100%;
     height: 100%;
     background-color: #f5f2f0;
     //border-radius: 5px;
@@ -175,19 +191,19 @@ export default function Home() {
                 />
               </Contents>
             </ContentsBox>
-            <TitleBox>
-              <Title titleBold>앞니전문 치료의 자존심,</Title>
-              <Title titleMidium>킹 갓 제너럴</Title>
-              <Title titleMidium>홍소미 원장님의</Title>
-              <Title titleMidium>
-                <TitleBoxLogo />
-                <TitleBoxText>치과</TitleBoxText>
-              </Title>
-            </TitleBox>
+            {/* <TitleBox> */}
+            {/*  <Title titleBold>앞니전문 치료의 자존심,</Title> */}
+            {/*  <Title titleMidium>킹 갓 제너럴</Title> */}
+            {/*  <Title titleMidium>홍소미 원장님의</Title> */}
+            {/*  <Title titleMidium> */}
+            {/*    <TitleBoxLogo /> */}
+            {/*    <TitleBoxText>치과</TitleBoxText> */}
+            {/*  </Title> */}
+            {/* </TitleBox> */}
           </Section>
           {/* End of Section1 */}
           <Section>
-            <VenusTitle text="치료 분야" underline={true}/>
+            <VenusTitle text="치료 분야" underline={true} />
             <ContentsBox>
               <Contents>
                 <ImgBox>
@@ -210,26 +226,34 @@ export default function Home() {
             </ContentsBox>
           </Section>
           {/* End of Section2 */}
+
+
+
+
+
           <Section>
-            <VenusTitle text="오시는 길" underline={true}/>
+            <VenusTitle text="오시는 길" underline={true} />
             <ContentsBox>
               <Contents>
-                <Map />
-                {/* <ReviewContactBox> */}
+                <Map2 />
+                {/*<ClinicInfo />*/}
+              </Contents>
+            </ContentsBox>
+          </Section>
+          <Section beige>
+            <ContentsBox>
+              <Contents>
                 <ReviewArticleBox>
                   <ReviewPreview />
                   <MediaPreviewBox>
                     {["블로그", "유튜브"].map((item) => {
                       return <MediaPreview mediaType={item} />;
                     })}
-                    {/* <YoutubePreview /> */}
                   </MediaPreviewBox>
                 </ReviewArticleBox>
-                {/* </ReviewContactBox> */}
               </Contents>
             </ContentsBox>
           </Section>
-          {/* End of Section3 */}
         </div>
       </AppLayout>
     </>
