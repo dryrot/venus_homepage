@@ -13,49 +13,67 @@ const ReviewPreview = (props) => {
       title: "두려움 없이 편히 치료를 받을 수 있었어요~~",
     },
     { author: "bosesoundmini", title: "너무 감사하고 좋았습니다" },
+    {
+      author: "jiwon4221",
+      title: "너무 떨렸는데 자고 일어나니 다 끝나있었어요",
+    },
+    { author: "dcast1414", title: "강력 추천합니다!" },
+    {
+      author: "surfwang77",
+      title: "두려움 없이 편히 치료를 받을 수 있었어요~~",
+    },
+    { author: "bosesoundmini", title: "너무 감사하고 좋았습니다" },
   ];
 
-  // const ReviewBox = styled.div`
-  //
-  // `;
   const ReviewBox = styled.div`
-    width: 100%;
-    height: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    // TODO 폰트테마 다시 잡을것
-    font-size: ${props => props.theme.fontSize.default};
-    
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px #00000030;
+    font-size: ${(props) => props.theme.fontSize.default};
     .review_seemore {
-      margin-top: 25px;
       cursor: pointer;
+      color: #848bb7;
     }
-  `;
-
-  const Review = styled.div`
-    text-align: center;
   `;
 
   const ReviewTitle = styled.span`
     width: 100px;
     height: 50px;
-    //font-size: 15px;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #adadca;
+    margin-bottom: 10px;
+    font-size: ${(props) => props.theme.fontSize.semiBold};
+    font-weight: 400;
+    line-height: 3;
+  `;
+
+  const ReviewImageBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 40%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: url("image/home_review_1.jpg");
+    img {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
   `;
 
   const ReviewListBox = styled.div`
-    margin-top: 30px;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
     ul {
-      list-style: none;
+      list-style: circle;
       padding-left: 0;
-      //border-bottom: 1px solid #fff;
-      //border-bottom: 1px solid #fff;
-      //box-shadow: 0px 1px 1px #00000017;
       cursor: pointer;
+      margin: 0;
     }
 
     ul:last-child {
@@ -64,29 +82,52 @@ const ReviewPreview = (props) => {
     }
 
     li {
-      margin: 5px;
+      margin: 16px 0px;
+    }
+
+    ._review_list {
+      border-left: 1px solid;
+      padding-left: 20px;
+    }
+  `;
+
+  const ReviewSeeMore = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    line-height: 3;
+    text-align: end;
+    i {
+      font-size: 30px;
+    }
+    
+    &:hover {
+      font-weight: 600;
     }
   `;
 
   return (
-    // <ReviewBox>
     <ReviewBox>
-      <Review>
-        <ReviewTitle>치료후기</ReviewTitle>
-        <ReviewListBox>
-          {reviewTemp.map((item) => {
-            return (
-              <ul>
-                <li className="_ellipsis">{item.title}</li>
-              </ul>
-            );
-          })}
-        </ReviewListBox>
-        <div className="review_seemore">더보기</div>
-      </Review>
+      <ReviewListBox>
+        <div className="_review_box">
+          <ReviewTitle>치료후기</ReviewTitle>
+          <div className="_review_list">
+            {reviewTemp.map((item) => {
+              return (
+                <ul>
+                  <li className="_ellipsis">{item.title}</li>
+                </ul>
+              );
+            })}
+          </div>
+          <ReviewSeeMore>
+            후기 더 보러가기
+            <i className="ri-arrow-right-s-fill" />
+          </ReviewSeeMore>
+        </div>
+      </ReviewListBox>
+      <ReviewImageBox />
     </ReviewBox>
-
-    // </ReviewBox>
   );
 };
 

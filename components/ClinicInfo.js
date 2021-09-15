@@ -51,17 +51,17 @@ const ClinicInfo = (props) => {
 
         <AddressBox>
           <AdressList>
-            강남구 논현로 841, JB미소빌딩 B105호, 비너스치과{" "}
+            강남구 논현로 841, JB미소빌딩 B105호, 비너스치과
             <div className="l3_icon">3</div>
             압구정역 4번출구
             <br />
           </AdressList>
           <AdressList>
-            평일 AM 10:00 - PM 06:00
+            평일 AM 10:30 - PM 06:00
             <br />
-            수요일 (야간진료) AM 10:00 - PM 08:00
+            토요일 AM 10:30 - PM 02:00
             <br />
-            토요일 AM 10:00 - PM 02:00
+            목요일 / 공휴일 / 일요일 휴무
           </AdressList>
           <AdressList>02-3445-9716</AdressList>
         </AddressBox>

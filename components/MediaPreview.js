@@ -32,7 +32,7 @@ const MediaPreview = (props) => {
     }
 
     ._media_title {
-      color: #000;
+      //color: #000;
       width: 100%;
       margin: 10px 0px;
       cursor: pointer;
@@ -46,11 +46,10 @@ const MediaPreview = (props) => {
     width: 100%;
     margin-bottom: 10px;
     div {
-      width: 40px;
-      height: 27px;
-      font-size: ${props => props.theme.fontSize.default};
+      font-size: ${(props) => props.theme.fontSize.default};
       padding-bottom: 5px;
-      border-bottom: 1px solid #adadca;
+      font-weight: 600;
+      //border-bottom: 1px solid #adadca;
     }
   `;
 
@@ -61,7 +60,7 @@ const MediaPreview = (props) => {
     img {
       width: 100%;
       //height: 100%;
-      height: 200px;
+      //height: 265px;
       object-fit: cover;
       //border-radius: 5px;
       box-shadow: 0px 1px 1px #00000017;

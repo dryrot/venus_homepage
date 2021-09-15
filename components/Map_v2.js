@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 const Map2 = (props) => {
   const MapBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     margin-right: 12px;
@@ -10,27 +13,29 @@ const Map2 = (props) => {
 
     box-shadow: 0px 1px 2px #00000030;
     #map_container {
-      width: 100%;
-      //height: 400px;
-          height: 60%;
+      //width: 100%;
+      ////height: 400px;
+      //    height: 60%;
+
+      width: 50%;
+      height: 100%;
+
       border-bottom: 1px solid #ddd;
     }
   `;
 
-  const AdressBox = styled.div`
+  const AddressBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     //height: calc(100% - 400px);
-    height: 40%;
-    background-color: #f5f2f0;
+    //height: 40%;
+    background-color: #c9ada7;
+    height: 100%;
     //border-radius: 0 0 5px 5px;
     box-sizing: border-box;
-    padding: 30px 20px;
-
-    div {
-      width: 100%;
-      color: ${(props) => props.theme.darkestSpace};
-      font-size: ${(props) => props.theme.fontSize.default};
-    }
+    padding: 30px 50px;
 
     .l3_icon {
       display: flex;
@@ -50,16 +55,11 @@ const Map2 = (props) => {
     }
   `;
 
-  const AdressList = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    // padding-bottom: 15px;
-    // margin-bottom: 15px;
-    //border-bottom: 1px solid #fff;
-    //box-shadow: 0px 1px 1px #00000017;
-
+  const AddressList = styled.div`
+     width: 100%;
+      color: ${(props) => props.theme.darkestSpace};
+      font-size: ${(props) => props.theme.fontSize.default};
+      margin: 20px 0px;
     &:last-child {
       padding-top: 5px;
       font-size: ${(props) => props.theme.fontSize.default}
@@ -67,6 +67,23 @@ const Map2 = (props) => {
       border-bottom: 0;
       box-shadow: none;
     }
+    
+    em {
+      font-style: normal;
+      font-weight: 600;
+    }
+    
+    ${(props) => {
+      if (props.phone) {
+        return `font-size: ${props.theme.fontSize.semiBold}; font-weight: 600;`;
+      }
+    }}
+  `;
+
+  const AddressTitle = styled.div`
+    font-size: ${(props) => props.theme.fontSize.semiBold};
+    color: ${(props) => props.theme.darkestSpace};
+    //border-bottom: 1px solid;
   `;
 
   useEffect(() => {
@@ -101,22 +118,26 @@ const Map2 = (props) => {
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7bff6a5ee2158886afc9a17f94239d"
       />
       <div id="map_container" />
-      <AdressBox>
-        <AdressList>
-          강남구 논현로 841, JB미소빌딩 B105호, 비너스치과{" "}
-          <div className="l3_icon">3</div>
-          압구정역 4번출구
-          <br />
-        </AdressList>
-        <AdressList>
-          평일 AM 10:00 - PM 06:00
-          <br />
-          수요일 (야간진료) AM 10:00 - PM 08:00
-          <br />
-          토요일 AM 10:00 - PM 02:00
-        </AdressList>
-        <AdressList>02-3445-9716</AdressList>
-      </AdressBox>
+      <AddressBox>
+        <div>
+          <AddressTitle>주소</AddressTitle>
+          <AddressList>
+            강남구 논현로 841, JB미소빌딩 B105호, 비너스치과 (압구정역{" "}
+            <em>4번</em>출구)
+            <br />
+          </AddressList>
+          <AddressTitle>진료시간</AddressTitle>
+          <AddressList>
+            평일 <em>오전 10:30 - 오후 06:00</em>
+            <br />
+            토요일 오전 <em>10:30 - 오후 02:00</em>
+            <br />
+            목요일 / 일요일 / 공휴일 휴무
+          </AddressList>
+          <AddressTitle>문의전화</AddressTitle>
+          <AddressList phone>02-3445-9716</AddressList>
+        </div>
+      </AddressBox>
     </MapBox>
   );
 };

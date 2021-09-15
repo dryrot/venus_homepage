@@ -24,7 +24,7 @@ const Navigator = () => {
           <Link href="/gyojung">앞니교정</Link>
         </div>
         <div className="navi_item _12">
-          <Link href="/review">치료후기</Link>
+          <Link href="/Review/review">치료후기</Link>
         </div>
       </div>
     </div>

@@ -54,13 +54,6 @@ const About = () => {
 
     img {
       ${(props) => {
-        if (props.image2) {
-          return "width: 600px;";
-        }
-
-        if (props.image3) {
-          return "width: 400px";
-        }
 
         if (props.image4) {
           return "width: 500px;";
