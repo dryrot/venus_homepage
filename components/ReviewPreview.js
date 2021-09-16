@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 const ReviewPreview = (props) => {
   const reviewTemp = [
@@ -97,10 +98,11 @@ const ReviewPreview = (props) => {
     justify-content: right;
     line-height: 3;
     text-align: end;
+    cursor: pointer;
     i {
       font-size: 30px;
     }
-    
+
     &:hover {
       font-weight: 600;
     }
@@ -120,10 +122,12 @@ const ReviewPreview = (props) => {
               );
             })}
           </div>
-          <ReviewSeeMore>
-            후기 더 보러가기
-            <i className="ri-arrow-right-s-fill" />
-          </ReviewSeeMore>
+          <Link href="/Review/review">
+            <ReviewSeeMore>
+              후기 더 보러가기
+              <i className="ri-arrow-right-s-fill" />
+            </ReviewSeeMore>
+          </Link>
         </div>
       </ReviewListBox>
       <ReviewImageBox />

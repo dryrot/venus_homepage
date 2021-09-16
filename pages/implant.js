@@ -2,54 +2,53 @@ import React from "react";
 import Head from "next/head";
 import AppLayout from "../components/AppLayout";
 import styled from "styled-components";
+import BeforeAfter from "../components/BeforeAfter";
+
+const Section = styled.div`
+  width: 100%;
+  display: inline-block;
+  align-items: baseline;
+  justify-content: center;
+  padding: 60px 0;
+  background-color: ${(props) =>
+    props.color === "beige" ? props.theme.lightBeige : "#fff"};
+
+  &:last-child {
+    padding: 0px 0px 400px 0px;
+  }
+`;
+
+const ContentsBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Contents = styled.div`
+  width: calc(100% - 500px);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  background-color: ${(props) =>
+    props.color === "beige" ? props.theme.lightBeige : "#fff"};
+`;
+
+const VDiv = (props) => {
+  return (
+    <>
+      <Section color={props.color}>
+        <ContentsBox>
+          <Contents color={props.contColor || props.color}>
+            {props.element}
+          </Contents>
+        </ContentsBox>
+      </Section>
+    </>
+  );
+};
 
 const Implant = () => {
-  const Section = styled.div`
-    width: 100%;
-    display: inline-block;
-    align-items: baseline;
-    justify-content: center;
-    //padding: 120px 0px 60px 0;
-    padding: 120px 0px 160px 0px;
-    ${(props) => {
-      if (props.beige) {
-        return `background-color: ${(props) => props.theme.lightBeige};`;
-      }
-
-      if (props.white) {
-        return "background-color: #fff;";
-      }
-    }}
-
-    //&:nth-child(3) {
-    //  padding: 250px 0;
-    //}
-
-    &:last-child {
-      padding: 0px 0px 400px 0px;
-    }
-  `;
-
-  const ContentsBox = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `;
-
-  const Contents = styled.div`
-    width: calc(100% - 500px);
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-
-    ${(props) => {
-      if (props.whiteContents) {
-        return "background-color: #fff;";
-      }
-    }}
-  `;
-
   const TextSection = styled.div`
     width: 100%;
     display: inline-block;
@@ -218,9 +217,9 @@ const Implant = () => {
       </Head>
       <AppLayout>
         <div>
-          <Section beige>
-            <ContentsBox>
-              <Contents beigeContents>
+          <VDiv
+            element={
+              <>
                 <ImageBox size={["500px", null]}>
                   <img src="/image/implant/implant_2.jpg" />
                 </ImageBox>
@@ -242,198 +241,196 @@ const Implant = () => {
                     </ul>
                   </Text>
                 </TextBox>
-              </Contents>
-            </ContentsBox>
-          </Section>
+              </>
+            }
+            color="beige"
+          />
 
-          <Section beige>
-            <ContentsBox>
-              <Contents>
-                <TextBox horizontal>
-                  <Text bigger>
-                    <ul>
-                      <li>
-                        <em>앞니 임플란트</em>는 어금니 임플란트와 다릅니다.
-                      </li>
-                      <li>어금니
-                        임플란트는 그냥 잘 씹히면 되지만 앞니는 잘 씹힐 뿐만
-                        아니라 예쁘기까지 해야 합니다.</li>
-                    </ul>
-                    <ul>
-                      <li>
-                        이는 어머니가 낳을 때 '인간'으로 낳으면 되는 것이 아니라 <em>'원빈(전지현)'</em>으로 낳는 것과 같습니다.
-                      </li>
-                      <li>
-                        앞니
-                        임플란트는 쉽지 않다는 점을 미리 알면 대비를 잘 하여
-                        실패도 피하고 실망도 덜 합니다.
-                      </li>
-                    </ul>
-                  </Text>
-                </TextBox>
-              </Contents>
-            </ContentsBox>
-          </Section>
+          <VDiv
+            element={
+              <TextBox horizontal>
+                <Text>
+                  <ul>
+                    <li>
+                      <em>앞니 임플란트</em>는 어금니 임플란트와 다릅니다.
+                    </li>
+                    <li>
+                      어금니 임플란트는 그냥 잘 씹히면 되지만 앞니는 잘 씹힐
+                      뿐만 아니라 예쁘기까지 해야 합니다.
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      이는 어머니가 낳을 때 '인간'으로 낳으면 되는 것이 아니라{" "}
+                      <em>'원빈(전지현)'</em>으로 낳는 것과 같습니다.
+                    </li>
+                    <li>
+                      앞니 임플란트는 쉽지 않다는 점을 미리 알면 대비를 잘 하여
+                      실패도 피하고 실망도 덜 합니다.
+                    </li>
+                  </ul>
+                </Text>
+              </TextBox>
+            }
+            color="beige"
+          />
 
-          <TextSection white>
-            <ContentsBox>
-              <Contents>
-                <TextBox horizontal>
-                  <Text>
-                    <ul>
-                      <li>
-                        오른쪽 대문니가 임플란트, 짝짝으로 길어진
-                        대문니(임플란트)가 환자에게는 트라우마일 것입니다.
-                      </li>
-                    </ul>
-                    <ul>
-                      <li>
-                        임플란트를 다시 심지 않아도 잇몸을 이식하고 크라운을
-                        다시 하면 많이 좋아집니다. 의지를 갖고 치료하면 없던
-                        일이 될 수도 있습니다.
-                      </li>
-                    </ul>
-                  </Text>
-                </TextBox>
-              </Contents>
-            </ContentsBox>
-          </TextSection>
+          <VDiv
+            element={
+              <TextBox horizontal>
+                <Text>
+                  <ul>
+                    <li>
+                      오른쪽 대문니가 임플란트, 짝짝으로 길어진
+                      대문니(임플란트)가 환자에게는 트라우마일 것입니다.
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      임플란트를 다시 심지 않아도 잇몸을 이식하고 크라운을 다시
+                      하면 많이 좋아집니다. 의지를 갖고 치료하면 없던 일이 될
+                      수도 있습니다.
+                    </li>
+                  </ul>
+                </Text>
+              </TextBox>
+            }
+            color="white"
+          />
 
-          <Section white>
-            <ContentsBox>
-              <Contents>
-                <ImageBox vertical>
-                  <div className="_div_grid">
-                    <img src="/image/implant/1.jpg" />
-                    <img src="/image/implant/3.jpg" />
-                  </div>
-                </ImageBox>
-                <ImageBox vertical>
-                  <div className="_div_grid">
-                    <img src="/image/implant/2.jpg" />
-                    <img src="/image/implant/4.jpg" />
-                  </div>
-                </ImageBox>
-              </Contents>
-            </ContentsBox>
-          </Section>
+          <VDiv
+            element={
+              <BeforeAfter
+                imgSrc={["/image/implant/1.jpg", "/image/implant/2.jpg"]}
+                imgHeight="600px"
+              />
+            }
+            color="white"
+          />
 
-          <TextSection beige>
-            <ContentsBox>
-              <Contents>
-                <TextBox horizontal>
-                  <Text>
-                    <ul>
-                      <li>
-                        왼쪽 대문니가 임플란트. 일반적으로 이 정도면 잘 심긴
-                        것이지만 이질적인 모습에 환자는 상실감으로 슬퍼합니다.
-                      </li>
-                      <li>
-                        좀 더 좋아지게 할 수 있습니다. 잇몸을 이식하고 크라운을
-                        다시 합니다.
-                      </li>
-                    </ul>
-                  </Text>
-                </TextBox>
-              </Contents>
-            </ContentsBox>
-          </TextSection>
+          <VDiv
+            element={
+              <BeforeAfter
+                imgSrc={["/image/implant/3.jpg", "/image/implant/4.jpg"]}
+                imgHeight="600px"
+              />
+            }
+            color="white"
+          />
 
-          <Section beige>
-            <ContentsBox>
-              <Contents>
-                <ImageBox vertical>
-                  <div className="_div_grid">
-                    <img src="/image/implant/5.jpg" />
-                    <img src="/image/implant/7.jpg" />
-                  </div>
-                </ImageBox>
-                <ImageBox vertical>
-                  <div className="_div_grid">
-                    <img src="/image/implant/6.jpg" />
-                    <img src="/image/implant/8.jpg" />
-                  </div>
-                </ImageBox>
-              </Contents>
-            </ContentsBox>
-          </Section>
+          <VDiv
+            element={
+              <TextBox horizontal>
+                <Text>
+                  <ul>
+                    <li>
+                      왼쪽 대문니가 임플란트. 일반적으로 이 정도면 잘 심긴
+                      것이지만 이질적인 모습에 환자는 상실감으로 슬퍼합니다.
+                    </li>
+                    <li>
+                      좀 더 좋아지게 할 수 있습니다. 잇몸을 이식하고 크라운을
+                      다시 합니다.
+                    </li>
+                  </ul>
+                </Text>
+              </TextBox>
+            }
+            color="beige"
+          />
 
-          <TextSection white>
-            <ContentsBox>
-              <Contents>
-                <TextBox horizontal>
-                  <Text>
-                    <ul>
-                      <li>
-                        그러나 처음부터 임플란트를 잘 심는 것이 가장
-                        중요하겠지요.
-                      </li>
-                      <li>
-                        왼쪽 앞니에 임플란트를 심을 것입니다. 없던 일이 될
-                        정도로 잘 심어야 합니다.
-                      </li>
-                    </ul>
-                  </Text>
-                </TextBox>
-              </Contents>
-            </ContentsBox>
-          </TextSection>
+          <VDiv
+            element={
+              <BeforeAfter
+                imgSrc={["/image/implant/5.jpg", "/image/implant/6.jpg"]}
+                imgHeight="600px"
+              />
+            }
+            color="beige"
+          />
 
-          <Section white>
-            <ContentsBox>
-              <Contents>
-                <ImageBox vertical>
-                  <div className="_div_horizontal">
-                    <img src="/image/implant/9.jpg" />
-                    <img src="/image/implant/10.jpg" />
-                  </div>
-                </ImageBox>
-              </Contents>
-            </ContentsBox>
-          </Section>
+          <VDiv
+            element={
+              <BeforeAfter
+                imgSrc={["/image/implant/7.jpg", "/image/implant/8.jpg"]}
+                imgHeight="600px"
+              />
+            }
+            color="beige"
+          />
 
-          <TextSection beige>
-            <ContentsBox>
-              <Contents>
-                <TextBox horizontal>
-                  <Text>
-                    <ul>
-                      <li>
-                        앞니가 여러 개 없어지면 환자는 절망적이겠지만 여러 개의
-                        임플란트가 의외로 어렵지 않습니다.
-                      </li>
-                    </ul>
-                    <ul>
-                      <li>
-                        원래대로 돌아 갈 의지만 있다면 원래대로 돌아갈 수
-                        있습니다.
-                      </li>
-                      <li><em> 꽉 붙잡고 놓치지 마세요.</em></li>
-                    </ul>
-                  </Text>
-                </TextBox>
-              </Contents>
-            </ContentsBox>
-          </TextSection>
+          <VDiv
+            element={
+              <TextBox horizontal>
+                <Text>
+                  <ul>
+                    <li>
+                      그러나 처음부터 임플란트를 잘 심는 것이 가장 중요하겠지요.
+                    </li>
+                    <li>
+                      왼쪽 앞니에 임플란트를 심을 것입니다. 없던 일이 될 정도로
+                      잘 심어야 합니다.
+                    </li>
+                  </ul>
+                </Text>
+              </TextBox>
+            }
+            color="white"
+          />
 
-          <Section beige>
-            <ContentsBox>
-              <Contents>
-                <ImageBox vertical>
-                  <div className="_div_grid">
-                    <img src="/image/implant/11.jpg" />
-                    <img src="/image/implant/13.jpg" />
-                  </div>
-                </ImageBox>
-                <ImageBox vertical>
-                  <div className="_div_grid">
-                    <img src="/image/implant/12.jpg" />
-                    <img src="/image/implant/14.jpg" />
-                  </div>
-                </ImageBox>
-              </Contents>
-            </ContentsBox>
-          </Section>
+          <VDiv
+            element={
+              <BeforeAfter
+                imgSrc={["/image/implant/9.jpg", "/image/implant/10.jpg"]}
+                imgHeight="600px"
+              />
+            }
+            color="white"
+          />
+
+          <VDiv
+            element={
+              <TextBox horizontal>
+                <Text>
+                  <ul>
+                    <li>
+                      앞니가 여러 개 없어지면 환자는 절망적이겠지만 여러 개의
+                      임플란트가 의외로 어렵지 않습니다.
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      원래대로 돌아 갈 의지만 있다면 원래대로 돌아갈 수
+                      있습니다.
+                    </li>
+                    <li>
+                      <em> 꽉 붙잡고 놓치지 마세요.</em>
+                    </li>
+                  </ul>
+                </Text>
+              </TextBox>
+            }
+            color="beige"
+          />
+
+          <VDiv
+            element={
+              <BeforeAfter
+                imgSrc={["/image/implant/11.jpg", "/image/implant/12.jpg"]}
+                imgHeight="600px"
+              />
+            }
+            color="beige"
+          />
+
+          <VDiv
+            element={
+              <BeforeAfter
+                imgSrc={["/image/implant/13.jpg", "/image/implant/14.jpg"]}
+                imgHeight="600px"
+              />
+            }
+            color="beige"
+          />
         </div>
       </AppLayout>
     </>

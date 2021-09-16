@@ -13,10 +13,6 @@ const Section = styled.div`
   padding: 60px 0;
   background-color: ${(props) =>
     props.color === "beige" ? props.theme.lightBeige : "#fff"};
-  &:nth-child(3) {
-    padding: 250px 0;
-  }
-
   &:last-child {
     padding: 0px 0px 400px 0px;
   }
@@ -115,15 +111,10 @@ const Simmi = () => {
       width: 700px;
       ${(props) => {
         if (props.wider) {
-          return "width: 900px;";
+          return "width: 900px; margin-bottom: 10px;";
         }
       }}
     }
-
-    //
-    //img {
-    //  width: 700px;
-    //}
 
     ._div_vertical {
       img {
@@ -158,7 +149,7 @@ const Simmi = () => {
 
     ${Section} {
       padding: 0;
-      padding-top: 15px;
+      padding-top: 40px;
       //padding-bottom: 60px;
     }
 
@@ -566,7 +557,6 @@ const Simmi = () => {
                       <ul>
                         <li>
                           <em>
-                            {" "}
                             앞면은 자연치아 그대로, 뒷면은 삭제 없이 덧대는
                             라미네이트
                           </em>
