@@ -16,3 +16,18 @@ export const fontSize = {
 export const contentWidth = "950px";
 
 export const boxShadow = "0px 3px 2px #00000030";
+
+
+// const deviceSizes = {
+//   mobile: "375px",
+//   tablet: "768px",
+//   laptop: "1024px",
+//   desktop: "1824px",
+// };
+//
+// const device = {
+//   mobile: `screen and (max-width: ${deviceSizes.mobile})`,
+//   tablet: `screen and (max-width: ${deviceSizes.tablet})`,
+//   laptop: `screen and (max-width: ${deviceSizes.laptop})`,
+//   desktop: `screen and (max-width: ${deviceSizes.desktop})`,
+// };
