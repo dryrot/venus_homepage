@@ -62,6 +62,11 @@ const ReviewPreview = (props) => {
       height: 100%;
       overflow: hidden;
     }
+    
+    ${({ theme }) => theme.desktop`
+        // width: calc(100vw - 2000px);
+        height: auto;
+    `}
   `;
 
   const ReviewListBox = styled.div`

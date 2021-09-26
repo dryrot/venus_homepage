@@ -6,7 +6,6 @@ import VenusTitle from "../components/VenusTitle";
 import BeforeAfter from "../components/BeforeAfter";
 import { VDiv, Section } from "../components/VDiv";
 
-
 const Part = styled.div`
   ${Section}:first-child {
     padding-top: 100px;

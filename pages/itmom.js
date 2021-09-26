@@ -3,46 +3,7 @@ import Head from "next/head";
 import AppLayout from "../components/AppLayout";
 import styled from "styled-components";
 import BeforeAfter from "../components/BeforeAfter";
-
-const Section = styled.div`
-  width: 100%;
-  display: inline-block;
-  align-items: baseline;
-  justify-content: center;
-  padding: 60px 0;
-  background-color: ${(props) =>
-    props.color === "beige" ? props.theme.lightBeige : "#fff"};
-`;
-
-const ContentsBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Contents = styled.div`
-  width: calc(100% - 500px);
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  justify-content: center;
-  background-color: ${(props) =>
-    props.color === "beige" ? props.theme.lightBeige : "#fff"};
-`;
-
-const VDiv = (props) => {
-  return (
-    <>
-      <Section color={props.color}>
-        <ContentsBox>
-          <Contents color={props.contColor || props.color}>
-            {props.element}
-          </Contents>
-        </ContentsBox>
-      </Section>
-    </>
-  );
-};
+import { VDiv, Section } from "../components/VDiv";
 
 const Part = styled.div`
   ${Section}:first-child {

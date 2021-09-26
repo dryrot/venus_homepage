@@ -37,6 +37,11 @@ const Review = () => {
     height: calc(100vh - 550px);
     overflow: hidden;
     box-shadow: -1px 1px 4px #51515157;
+    
+    ${({ theme }) => theme.desktop`
+        width: calc(100vw - 2000px);
+        height: auto;
+    `}
   `;
 
   const BoardBack = styled.div`
@@ -48,6 +53,12 @@ const Review = () => {
 
   const BoardBox = styled.div`
     width: calc(100% - 500px);
+    
+     
+    ${({ theme }) => theme.desktop`
+        width: calc(100vw - 2000px);
+        height: auto;
+    `}
   `;
 
   return (

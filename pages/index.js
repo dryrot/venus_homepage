@@ -65,6 +65,11 @@ export default function Home() {
         );
       }
     }}
+    
+     ${({ theme }) => theme.desktop`
+        width: calc(100vw - 2000px);
+        height: auto;
+    `}
   `;
 
   const TitleBox = styled.div`

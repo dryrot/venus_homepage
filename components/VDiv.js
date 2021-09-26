@@ -25,6 +25,10 @@ const Contents = styled.div`
   justify-content: center;
   background-color: ${(props) =>
     props.color === "beige" ? props.theme.lightBeige : "#fff"};
+
+  ${({ theme }) => theme.desktop`
+        width: calc(100vw - 2000px);
+    `}
 `;
 
 export const VDiv = (props) => {
