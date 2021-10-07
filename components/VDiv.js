@@ -9,6 +9,17 @@ export const Section = styled.div`
   padding: 60px 0;
   background-color: ${(props) =>
     props.color === "beige" ? props.theme.lightBeige : "#fff"};
+  ${({ theme }) => theme.mobile`
+     padding: 30px 0;
+     ${(props) => {
+       if (props.disYn === "n") {
+         return " display: none;";
+       }
+       if (props.padding !== undefined) {
+         return `padding: ${props.padding}`;
+       }
+     }}
+  `}
 `;
 
 const ContentsBox = styled.div`
@@ -28,13 +39,17 @@ const Contents = styled.div`
 
   ${({ theme }) => theme.desktop`
         width: calc(100vw - 2000px);
-    `}
+  `}
+
+  ${({ theme }) => theme.mobile`
+         width: 100vw;
+  `}
 `;
 
 export const VDiv = (props) => {
   return (
     <>
-      <Section color={props.color}>
+      <Section color={props.color} disYn={props.disYn} padding={props.padding}>
         <ContentsBox>
           <Contents color={props.contColor || props.color}>
             {props.element}

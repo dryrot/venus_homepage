@@ -8,9 +8,15 @@ import { VDiv, Section } from "../components/VDiv";
 const Part = styled.div`
   ${Section}:first-child {
     padding-top: 100px;
+    ${({ theme }) => theme.mobile`
+     padding: 0;
+  `}
   }
   ${Section}:last-child {
     padding-bottom: 200px;
+    ${({ theme }) => theme.mobile`
+     padding-bottom: 100px;
+  `}
   }
 `;
 
@@ -27,15 +33,6 @@ const Implant = () => {
       if (props.horizontal) {
         return `width: 700px;`;
       }
-
-      if (props.whiteText) {
-        return "background-color: #fff; margin:0px 45px; padding: 7px 30px;";
-      }
-
-      if (props.beigeText) {
-        return `background-color: ${props.theme.lightBeige}; margin:0px 45px; padding: 7px 30px;`;
-      }
-
       if (props.padding) {
         return `padding: ${props.padding};`;
       }
@@ -60,6 +57,9 @@ const Implant = () => {
 
     ._bold {
       font-weight: 400;
+      ${({ theme }) => theme.mobile`
+          font-weight: 600;
+  `}
     }
     li {
       width: 100%;
@@ -79,6 +79,13 @@ const Implant = () => {
         return `text-align: center; font-size: ${props.theme.fontSize.semiBold};`;
       }
     }}
+
+    ${({ theme }) => theme.mobile`
+     text-align: left;
+     width: calc(100% - 50px);
+         word-break: normal;
+     font-size: ${theme.mFontSize.default};
+  `}
   `;
 
   const ImageBox = styled.div`
@@ -98,13 +105,7 @@ const Implant = () => {
       width: 700px;
       ${(props) => {
         if (props.size) {
-          if (props.size[0] && props.size[1] !== null) {
-            return `width: ${props.size[0]}; height: ${props.size[1]};`;
-          } else if (props.size[0] !== null && props.size[1] === null) {
-            return `width: ${props.size[0]};`;
-          } else if (props.size[1] !== null && props.size[0] === null) {
-            return `height: ${props.size[1]};`;
-          }
+          return `width: ${props.size[0]}; height: ${props.size[1]};`;
         }
       }}
     }
@@ -127,12 +128,52 @@ const Implant = () => {
         margin: 0px 5px 50px 5px;
       }
     }
+    ${({ theme }) => theme.mobile`
+      img {
+        width: 100%;
+      }
+    `}
+  `;
+
+  const MBox = styled.div`
+    display: none;
+    //padding: 30px;
+    padding-top: 30px;
+    ${({ theme }) => theme.mobile`
+     display: block;
+  `}
+  `;
+  const MImageBox = styled.div`
+    align-items: center;
+    background-image: url(${(props) => props.imgSrc});
+    background-position: ${(props) => props.pos};
+    background-size: cover;
+    display: flex;
+    height: 425px;
+    justify-content: center;
+    overflow: hidden;
+  `;
+  const MTextBox = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    ${TextBox} {
+      padding: 0;
+    }
+
+    ${Text} {
+      margin-top: 30px;
+    }
   `;
 
   return (
     <>
       <Head>
         <title>Implant | Venuss</title>
+        <meta
+          content="initial-scale=1, maximum-scale=1, user-scalable=0"
+          name="viewport"
+        />
       </Head>
       <AppLayout>
         <div>
@@ -147,9 +188,9 @@ const Implant = () => {
                     <Text>
                       <ul>
                         <li>
-                          불가항력적으로 앞니가 빠졌을 때는 임플란트를 해야 하지만
-                          앞니 임플란트는 생각보다 못생겨서 깜짝 놀라는 분들이
-                          많습니다.
+                          불가항력적으로 앞니가 빠졌을 때는 임플란트를 해야
+                          하지만 앞니 임플란트는 생각보다 못생겨서 깜짝 놀라는
+                          분들이 많습니다.
                         </li>
                       </ul>
                       <ul>
@@ -164,7 +205,39 @@ const Implant = () => {
                 </>
               }
               color="beige"
+              disYn="n"
             />
+
+            <MBox>
+              <MImageBox imgSrc="/image/implant/implant_2.jpg" pos="right">
+                {/* <img src="/image/simmi/simmi_1.jpg" /> */}
+              </MImageBox>
+              <MTextBox bigger>
+                <Text>
+                  <ul>
+                    <li>
+                      앞니 보철에서 비너스가 제안하는 목표는{" "}
+                      <em>없던 일로 돌아가자</em>입니다.
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      이를 씌우지도, 뽑지도, 신경이 죽지도, 비인간적인 보철을 한
+                      적 없는,
+                    </li>
+                    <li> 아무 일도 없어서 걱정도 없던 시절로 돌아가는 것.</li>
+                  </ul>
+                  <ul>
+                    <li>그러기 위해 두가지 노력을 하는데,</li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <em>자연보호</em>와 <em>자연의 지극한 모방</em>입니다.
+                    </li>
+                  </ul>
+                </Text>
+              </MTextBox>
+            </MBox>
 
             <VDiv
               element={
@@ -181,18 +254,21 @@ const Implant = () => {
                     </ul>
                     <ul>
                       <li>
-                        이는 어머니가 낳을 때 '인간'으로 낳으면 되는 것이 아니라
+                        이는 어머니가 낳을 때 '인간'으로 낳으면 되는 것이 아니라{" "}
                         <em>'원빈(전지현)'</em>으로 낳는 것과 같습니다.
                       </li>
+                    </ul>
+                    <ul>
                       <li>
-                        앞니 임플란트는 쉽지 않다는 점을 미리 알면 대비를 잘 하여
-                        실패도 피하고 실망도 덜 합니다.
+                        앞니 임플란트는 쉽지 않다는 점을 미리 알면 대비를 잘
+                        하여 실패도 피하고 실망도 덜 합니다.
                       </li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="beige"
+              padding="0px 0px 20px 0px !important"
             />
           </Part>
 
@@ -209,15 +285,17 @@ const Implant = () => {
                     </ul>
                     <ul>
                       <li>
-                        임플란트를 다시 심지 않아도 잇몸을 이식하고 크라운을 다시
-                        하면 많이 좋아집니다. 의지를 갖고 치료하면 없던 일이 될
-                        수도 있습니다.
+                        임플란트를 다시 심지 않아도 잇몸을 이식하고 크라운을
+                        다시 하면 많이 좋아집니다. 의지를 갖고 치료하면 없던
+                        일이 될 수도 있습니다.
                       </li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="white"
+              padding="20px 0px 0px 0px !important"
+
             />
 
             <VDiv
@@ -228,6 +306,7 @@ const Implant = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -238,6 +317,7 @@ const Implant = () => {
                 />
               }
               color="white"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
 
@@ -260,6 +340,7 @@ const Implant = () => {
                 </TextBox>
               }
               color="beige"
+              padding="20px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -270,6 +351,7 @@ const Implant = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -280,6 +362,7 @@ const Implant = () => {
                 />
               }
               color="beige"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
 
@@ -290,17 +373,19 @@ const Implant = () => {
                   <Text>
                     <ul>
                       <li>
-                        그러나 처음부터 임플란트를 잘 심는 것이 가장 중요하겠지요.
+                        그러나 처음부터 임플란트를 잘 심는 것이 가장
+                        중요하겠지요.
                       </li>
                       <li>
-                        왼쪽 앞니에 임플란트를 심을 것입니다. 없던 일이 될 정도로
-                        잘 심어야 합니다.
+                        왼쪽 앞니에 임플란트를 심을 것입니다. 없던 일이 될
+                        정도로 잘 심어야 합니다.
                       </li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="white"
+              padding="20px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -311,6 +396,7 @@ const Implant = () => {
                 />
               }
               color="white"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
 
@@ -338,6 +424,7 @@ const Implant = () => {
                 </TextBox>
               }
               color="beige"
+              padding="20px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -348,6 +435,7 @@ const Implant = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -358,6 +446,7 @@ const Implant = () => {
                 />
               }
               color="beige"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
         </div>

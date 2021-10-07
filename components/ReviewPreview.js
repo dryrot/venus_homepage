@@ -37,6 +37,10 @@ const ReviewPreview = (props) => {
       cursor: pointer;
       color: #848bb7;
     }
+    ${({ theme }) => theme.mobile`
+         width: auto;
+         margin-top: 50px;
+    `}
   `;
 
   const ReviewTitle = styled.span`
@@ -62,10 +66,14 @@ const ReviewPreview = (props) => {
       height: 100%;
       overflow: hidden;
     }
-    
+
     ${({ theme }) => theme.desktop`
-        // width: calc(100vw - 2000px);
+        width: calc(100vw - 2000px);
         height: auto;
+    `}
+
+    ${({ theme }) => theme.mobile`
+        display: none;
     `}
   `;
 
@@ -95,6 +103,10 @@ const ReviewPreview = (props) => {
       border-left: 1px solid;
       padding-left: 20px;
     }
+
+    ${({ theme }) => theme.mobile`
+        display: none;
+    `}
   `;
 
   const ReviewSeeMore = styled.div`
@@ -111,6 +123,36 @@ const ReviewPreview = (props) => {
     &:hover {
       font-weight: 600;
     }
+
+    ${({ theme }) => theme.mobile`
+        font-size: ${theme.mFontSize.reviewSmall};
+        i {
+          font-size: 15px;
+        }
+    `}
+  `;
+
+  const MReviewBox = styled.div`
+    display: none;
+    ${({ theme }) => theme.mobile`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: ${theme.mFontSize.review};    
+    margin: 10px;
+    ul {
+      margin: 0;
+      list-style: circle;
+      margin-bottom: 10px;
+    }
+    `}
+  `;
+
+  const MReviewList = styled.div`
+    display: none;
+    ${({ theme }) => theme.mobile`
+        display: block;
+    `}
   `;
 
   return (
@@ -136,6 +178,27 @@ const ReviewPreview = (props) => {
         </div>
       </ReviewListBox>
       <ReviewImageBox />
+      <MReviewBox>
+        <MReviewList>
+          {reviewTemp.map((item, idx) => {
+            if (idx < 4) {
+              return (
+                <ul>
+                  <li>{item.title}</li>
+                </ul>
+              );
+            } else {
+              return null;
+            }
+          })}
+          <Link href="/Review/review">
+            <ReviewSeeMore>
+              후기 더 보러가기
+              <i className="ri-arrow-right-s-fill" />
+            </ReviewSeeMore>
+          </Link>
+        </MReviewList>
+      </MReviewBox>
     </ReviewBox>
   );
 };

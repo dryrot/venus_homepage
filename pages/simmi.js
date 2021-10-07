@@ -8,20 +8,30 @@ import { VDiv, Section } from "../components/VDiv";
 
 const Part = styled.div`
   ${Section}:first-child {
-    padding-top: 100px;
+    //padding-top: 100px;
   }
+  ${({ theme }) => theme.mobile`
+      padding: 50px 0px 0px 0px;
+   `}
   ${Section}:last-child {
     padding-bottom: 200px;
+    ${({ theme }) => theme.mobile`
+     padding-bottom: 100px;
+  `}
   }
+
+  ${({ theme }) => theme.mobile`
+      padding: 0;
+   `}
 `;
 
 const Simmi = () => {
   const TextBox = styled.div`
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
-    width: 100%;
     padding: 0px 70px;
+    width: 100%;
     ${(props) => {
       if (props.vertical) {
         return `padding: 90px;`;
@@ -30,17 +40,35 @@ const Simmi = () => {
         return `width: 700px; text-align:center;`;
       }
     }}
+
+    ${({ theme }) => theme.mobile`
+     padding: 0;
+  `}
   `;
 
   const Text = styled.div`
     display: block;
     font-size: ${(props) => props.theme.fontSize.default};
     word-break: keep-all;
+
+    ${({ theme }) => theme.mobile`
+     text-align: left;
+     width: calc(100% - 50px);
+         word-break: normal;
+     font-size: ${theme.mFontSize.default};
+  `}
+
     ul {
       width: 100%;
       list-style: none;
       padding-left: 0;
-      padding-bottom: 10px;
+
+      &.center {
+        ${({ theme }) => theme.mobile`
+     text-align: center;
+     font-size: ${theme.mFontSize.bold} !important;
+  `}
+      }
     }
 
     ._ul_underline {
@@ -55,6 +83,9 @@ const Simmi = () => {
 
     .bigger {
       font-size: ${(props) => props.theme.fontSize.semiBold};
+      ${({ theme }) => theme.mobile`
+      font-size: ${(props) => props.theme.mFontSize.semiBold};
+  `}
     }
 
     ${(props) => {
@@ -69,8 +100,8 @@ const Simmi = () => {
   `;
 
   const ImageBox = styled.div`
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     width: 100%;
 
@@ -81,6 +112,10 @@ const Simmi = () => {
           return "width: 900px; margin-bottom: 10px;";
         }
       }}
+
+      ${({ theme }) => theme.mobile`
+     width: 100vw;
+  `}
     }
 
     ._div_vertical {
@@ -104,6 +139,36 @@ const Simmi = () => {
     }
   `;
 
+  const MBox = styled.div`
+    display: none;
+
+    ${({ theme }) => theme.mobile`
+     display: block;
+  `}
+  `;
+  const MImageBox = styled.div`
+    align-items: center;
+    background-image: url(${(props) => props.imgSrc});
+    background-position: ${(props) => props.pos};
+    background-size: cover;
+    display: flex;
+    height: 470px;
+    justify-content: center;
+    overflow: hidden;
+  `;
+  const MTextBox = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    ${TextBox} {
+      padding: 0;
+    }
+
+    ${Text} {
+      margin: 30px 0px;
+    }
+  `;
+
   const ImageGrid = styled.div`
     ${(props) => {
       if (props.white) {
@@ -113,29 +178,16 @@ const Simmi = () => {
         return `background-color: ${(props) => props.theme.lightBeige};`;
       }
     }}
-
-    ${Section} {
-      padding: 0;
-      padding-top: 40px;
-      //padding-bottom: 60px;
-    }
-
-    ${Section}:first-child {
-      padding: 0;
-      padding-top: 200px;
-      //background-color: red;
-    }
-
-    ${Section}:last-child {
-      padding: 0px;
-      padding-bottom: 200px;
-    }
   `;
 
   return (
     <>
       <Head>
         <title>앞니 심미보철 | Venuss</title>
+        <meta
+          content="initial-scale=1, maximum-scale=1, user-scalable=0"
+          name="viewport"
+        />
       </Head>
       <AppLayout>
         <div>
@@ -166,7 +218,40 @@ const Simmi = () => {
               }
               color="beige"
               contColor="white"
+              disYn="n"
             />
+
+            {/* Mobile */}
+            <MBox>
+              <MImageBox imgSrc="/image/simmi/simmi_1.jpg" pos="right">
+                {/* <img src="/image/simmi/simmi_1.jpg" /> */}
+              </MImageBox>
+              <MTextBox bigger>
+                <Text>
+                  <ul>
+                    <li>
+                      앞니 보철에서 비너스가 제안하는 목표는{" "}
+                      <em>없던 일로 돌아가자</em>입니다.
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      이를 씌우지도, 뽑지도, 신경이 죽지도, 비인간적인 보철을 한
+                      적 없는,
+                    </li>
+                    <li> 아무 일도 없어서 걱정도 없던 시절로 돌아가는 것.</li>
+                  </ul>
+                  <ul>
+                    <li>그러기 위해 두가지 노력을 하는데,</li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <em>자연보호</em>와 <em>자연의 지극한 모방</em>입니다.
+                    </li>
+                  </ul>
+                </Text>
+              </MTextBox>
+            </MBox>
 
             <VDiv
               element={
@@ -174,8 +259,8 @@ const Simmi = () => {
                   <Text end>
                     <ul>
                       <li>
-                        이를 씌우지도, 뽑지도, 신경이 죽지도, 비인간적인 보철을 한
-                        적 없는,
+                        이를 씌우지도, 뽑지도, 신경이 죽지도, 비인간적인 보철을
+                        한 적 없는,
                       </li>
                       <li> 아무 일도 없어서 걱정도 없던 시절로 돌아가는 것.</li>
                     </ul>
@@ -191,6 +276,7 @@ const Simmi = () => {
                 </TextBox>
               }
               color="beige"
+              disYn="n"
             />
           </Part>
 
@@ -242,10 +328,10 @@ const Simmi = () => {
                     </ul>
                     <ul>
                       <li>
-                        치료가 끝났을 때 당신은
-                        <em>앞니를 한 적 없는 사람이 되어야 합니다.</em> 제가 늘
-                        그렇게 합니다.
+                        치료가 끝났을 때 당신은{" "}
+                        <em> 앞니를 한 적 없는 사람이 되어야 합니다.</em>
                       </li>
+                      <li>제가 늘 그렇게 합니다.</li>
                     </ul>
                   </Text>
                 </TextBox>
@@ -280,9 +366,9 @@ const Simmi = () => {
                       </ul>
                       <ul>
                         <li>
-                          자연치아는 세포단위 발생의 결과이기 때문에 이러한 자연의
-                          무늬와 질감은 당연한 것이지만 이것을 사람의 손으로
-                          재현하려면 지극히 노력해야 합니다.
+                          자연치아는 세포단위 발생의 결과이기 때문에 이러한
+                          자연의 무늬와 질감은 당연한 것이지만 이것을 사람의
+                          손으로 재현하려면 지극히 노력해야 합니다.
                         </li>
                       </ul>
                       <ul>
@@ -297,18 +383,54 @@ const Simmi = () => {
               }
               color="beige"
               contColor="white"
+              disYn="n"
             />
           </Part>
 
+          {/* Mobile */}
+          <MBox>
+            <MImageBox imgSrc="/image/simmi/1.jpg" pos="center">
+              {/* <img src="/image/simmi/simmi_1.jpg" /> */}
+            </MImageBox>
+            <MTextBox>
+              <Text>
+                <ul>
+                  <li>
+                    <em>붙이기 전 비너스의 라미네이트</em>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    비너스의 보철은 단순히 희지 않고 알록달록, 오돌토돌합니다.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    자연치아는 세포단위 발생의 결과이기 때문에 이러한 자연의
+                    무늬와 질감은 당연한 것이지만 이것을 사람의 손으로
+                    재현하려면 지극히 노력해야 합니다.
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    비너스 보철의 무늬와 질감은 지극히 자연스러운 보철을 위한
+                    노력과 실력의 결과물입니다.
+                  </li>
+                </ul>
+              </Text>
+            </MTextBox>
+          </MBox>
+
           <Part>
-            <ImageGrid white>
+            <ImageGrid beige>
               <VDiv
                 element={
                   <ImageBox wider>
                     <img src="/image/simmi/2.jpg" />
                   </ImageBox>
                 }
-                color="white"
+                color="beige"
+                padding="0px"
               />
               <VDiv
                 element={
@@ -318,7 +440,8 @@ const Simmi = () => {
                     </ImageBox>
                   </>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -335,7 +458,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                padding="10px 0"
+                color="beige"
               />
               <VDiv
                 element={
@@ -343,7 +467,8 @@ const Simmi = () => {
                     <img src="/image/simmi/4.jpg" />
                   </ImageBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -351,7 +476,8 @@ const Simmi = () => {
                     <img src="/image/simmi/5.jpg" />
                   </ImageBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -359,7 +485,8 @@ const Simmi = () => {
                     <img src="/image/simmi/6.jpg" />
                   </ImageBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -368,15 +495,16 @@ const Simmi = () => {
                       <ul>
                         <li>
                           <em>
-                            비너스의 무늬와 표면 질감(역시 자꾸 만져 보고싶은 표면
-                            질감)
+                            비너스의 무늬와 표면 질감(역시 자꾸 만져 보고싶은
+                            표면 질감)
                           </em>
                         </li>
                       </ul>
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0"
               />
 
               <VDiv
@@ -385,7 +513,8 @@ const Simmi = () => {
                     <img src="/image/simmi/7.jpg" />
                   </ImageBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -393,7 +522,8 @@ const Simmi = () => {
                     <img src="/image/simmi/8.jpg" />
                   </ImageBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -409,7 +539,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                padding="10px 0px 30px 0px !important"
+                color="beige"
               />
             </ImageGrid>
           </Part>
@@ -420,7 +551,7 @@ const Simmi = () => {
                 element={
                   <TextBox>
                     <Text bigger>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>자연보호</em>
                         </li>
@@ -428,7 +559,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="beige"
+                color="white"
+                padding="30px 0"
               />
               <VDiv
                 element={
@@ -436,7 +568,8 @@ const Simmi = () => {
                     <img src="/image/simmi/9.jpg" />
                   </ImageBox>
                 }
-                color="beige"
+                color="white"
+                padding="0px"
               />
 
               <VDiv
@@ -445,7 +578,8 @@ const Simmi = () => {
                     <img src="/image/simmi/10.jpg" />
                   </ImageBox>
                 }
-                color="beige"
+                color="white"
+                padding="10px 0"
               />
 
               <VDiv
@@ -454,7 +588,8 @@ const Simmi = () => {
                     <img src="/image/simmi/11.jpg" />
                   </ImageBox>
                 }
-                color="beige"
+                color="white"
+                padding="10px 0"
               />
 
               <VDiv
@@ -463,7 +598,8 @@ const Simmi = () => {
                     <img src="/image/simmi/12.jpg" />
                   </ImageBox>
                 }
-                color="beige"
+                color="white"
+                padding="10px 0"
               />
 
               <VDiv
@@ -473,15 +609,16 @@ const Simmi = () => {
                       <ul>
                         <li>
                           <em>
-                            녹았으면(구토 부식) 녹은만큼만 더하고 아름다운 앞면은
-                            그대로 두자.
+                            녹았으면(구토 부식) 녹은만큼만 더하고 아름다운
+                            앞면은 그대로 두자.
                           </em>
                         </li>
                       </ul>
                     </Text>
                   </TextBox>
                 }
-                color="beige"
+                color="white"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -489,7 +626,8 @@ const Simmi = () => {
                     <img src="/image/simmi/13.jpg" />
                   </ImageBox>
                 }
-                color="beige"
+                color="white"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -503,7 +641,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="beige"
+                padding="10px 0"
+                color="white"
               />
 
               <VDiv
@@ -513,7 +652,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="beige"
+                color="white"
+                padding="10px 0"
               />
               <VDiv
                 element={
@@ -522,7 +662,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="beige"
+                color="white"
+                padding="10px 0"
               />
 
               <VDiv
@@ -542,7 +683,8 @@ const Simmi = () => {
                     </TextBox>
                   </>
                 }
-                color="beige"
+                color="white"
+                padding="10px 0px 30px 0px !important"
               />
             </ImageGrid>
           </Part>
@@ -553,20 +695,21 @@ const Simmi = () => {
                 element={
                   <TextBox>
                     <Text bigger>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>자연의 모방</em>
                         </li>
                       </ul>
                       <ul>
                         <li>
-                          <em>보철한 이를 알아 볼 수 없는 자연스러움</em>
+                          <em>보철한 이를 알아볼 수 없는 자연스러움</em>
                         </li>
                       </ul>
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="30px 0"
               />
               <VDiv
                 element={
@@ -575,14 +718,15 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="7px 0"
               />
 
               <VDiv
                 element={
                   <TextBox>
                     <Text>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>1개</em>
                         </li>
@@ -590,7 +734,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="0px"
               />
 
               <VDiv
@@ -600,14 +745,15 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
                 element={
                   <TextBox>
                     <Text>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>1개</em>
                         </li>
@@ -615,7 +761,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -625,14 +772,15 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
                 element={
                   <TextBox>
                     <Text>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>2개</em>
                         </li>
@@ -640,7 +788,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -650,14 +799,15 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
                 element={
                   <TextBox>
                     <Text>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>3개</em>
                         </li>
@@ -665,7 +815,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -675,7 +826,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -685,14 +837,15 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
                 element={
                   <TextBox>
                     <Text>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>4개</em>
                         </li>
@@ -700,7 +853,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -710,7 +864,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -720,7 +875,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -730,14 +886,15 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
                 element={
                   <TextBox>
                     <Text>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>6개</em>
                         </li>
@@ -745,7 +902,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -755,7 +913,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -765,7 +924,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -775,7 +935,8 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -785,14 +946,15 @@ const Simmi = () => {
                     imgHeight="600px"
                   />
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
                 element={
                   <TextBox>
                     <Text>
-                      <ul>
+                      <ul className="center">
                         <li>
                           <em>6개 이상(전악재건)</em>
                         </li>
@@ -800,7 +962,8 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
 
               <VDiv
@@ -821,16 +984,11 @@ const Simmi = () => {
                     </Text>
                   </TextBox>
                 }
-                color="white"
+                color="beige"
+                padding="10px 0px"
               />
             </ImageGrid>
           </Part>
-
-
-
-
-
-
         </div>
       </AppLayout>
     </>

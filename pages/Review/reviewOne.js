@@ -9,11 +9,21 @@ const ReviewBox = styled.div`
 
   &:first-child {
     margin-top: 100px;
+    ${({ theme }) => theme.mobile`
+    margin-top: 50px;
+  `}
   }
 
   &:last-child {
     margin-bottom: 200px;
+    ${({ theme }) => theme.mobile`
+    margin-bottom: 80px;
+  `}
   }
+  ${({ theme }) => theme.mobile`
+    margin: 50px 25px;
+    width: calc(100% - 50px);
+  `}
 `;
 
 const ReviewMore = styled.div`
@@ -25,30 +35,35 @@ const ReviewMore = styled.div`
   width: 100%;
   height: 180px;
   background: linear-gradient(#ffffff00, #ffffffeb, #fff);
-
   ._more_btn {
     font-weight: 600;
     font-size: 35px;
     // color: ${(props) => props.theme.darkBeige}
+    ${({ theme }) => theme.mobile`
+          font-size: 25px;
+    `}
   }
-
   ._more_btn:hover {
     color: ${(props) => props.theme.temp1};
   }
 `;
 
-const getHeight = id => {
+const getHeight = (id) => {
   let element = document.querySelector(`#${id}`);
-  return element.scrollHeight + 'px';
+  return element.scrollHeight + "px";
 };
 
 const ReviewContent = styled.div`
   position: relative;
   width: 100%;
   padding: 0px 60px;
-  // height: ${(props) => (props.showYn === true ? "1000px" : "200px")};
-  height: ${(props) => (props.showYn === true ? getHeight(props.boxId) : "200px")};
+  height: ${(props) =>
+  props.showYn === true ? getHeight(props.boxId) : "200px"};
   transition: height 0.7s ease-out;
+  ${({ theme }) => theme.mobile`
+    padding: 12px;
+    font-size: ${theme.mFontSize.review};
+    `}
 `;
 
 const ReviewOne = (props) => {
@@ -58,6 +73,9 @@ const ReviewOne = (props) => {
     background-color: ${(props) => props.theme.darkSpace};
     width: 100%;
     height: 10px;
+    ${({ theme }) => theme.mobile`
+      height: 5px;
+    `}
   `;
 
   const ReviewTitle = styled.div`
@@ -73,16 +91,21 @@ const ReviewOne = (props) => {
     }
 
     ._author {
-      float: left;
+      //float: left;
+      float: right;
       display: flex;
       align-items: center;
-      margin: 0px 20px;
+      //margin: 0px 20px;
+      margin-left: 20px;
       color: #979cc0;
       font-weight: 200;
       font-size: 20px;
       i {
         margin: 0px 10px -7px 0px;
       }
+      ${({ theme }) => theme.mobile`
+      font-size: ${theme.mFontSize.reviewSmall};
+    `}
     }
 
     ._line {
@@ -94,7 +117,14 @@ const ReviewOne = (props) => {
 
     ._more {
       float: right;
+      ${({ theme }) => theme.mobile`
+      display: none;
+    `}
     }
+    ${({ theme }) => theme.mobile`
+      font-size: ${theme.mFontSize.review};
+          padding: 10px;
+    `}
   `;
 
   const ReviewInfo = styled.div`
@@ -112,14 +142,20 @@ const ReviewOne = (props) => {
     <ReviewBox id={props.id}>
       <ReviewTop />
       <ReviewTitle>
-        <div className="_title">{review.title}</div>
+        <div className="_title">
+          {review.title}
+          <span className="_author">
+            <i className="ri-subtract-line" />
+            {review.author}님
+          </span>
+        </div>
         <span className="_more">
           <i className="ri-more-line" />
         </span>
-        <span className="_author">
-          <i className="ri-subtract-line" />
-          {review.author}님
-        </span>
+        {/* <span className="_author"> */}
+        {/*  <i className="ri-subtract-line" /> */}
+        {/*  {review.author}님 */}
+        {/* </span> */}
       </ReviewTitle>
       <ReviewContent boxId={props.id} showYn={showYn}>
         {review.content.split("\n").map((str) => {

@@ -8,9 +8,15 @@ import { VDiv, Section } from "../components/VDiv";
 const Part = styled.div`
   ${Section}:first-child {
     padding-top: 100px;
+    ${({ theme }) => theme.mobile`
+     padding: 0;
+  `}
   }
   ${Section}:last-child {
     padding-bottom: 200px;
+    ${({ theme }) => theme.mobile`
+     padding-bottom: 100px;
+  `}
   }
 `;
 
@@ -39,6 +45,13 @@ const Itmom = () => {
       list-style: none;
       padding-left: 0;
       padding-bottom: 10px;
+
+      &.center {
+        ${({ theme }) => theme.mobile`
+       text-align: center;
+       font-size: ${theme.mFontSize.semiBold} !important;
+  `}
+      }
     }
 
     ._ul_underline {
@@ -48,6 +61,9 @@ const Itmom = () => {
 
     ._bold {
       font-weight: 400;
+      ${({ theme }) => theme.mobile`
+          font-weight: 600;
+  `}
     }
     li {
       width: 100%;
@@ -67,11 +83,17 @@ const Itmom = () => {
         return `text-align: center; font-size: ${props.theme.fontSize.semiBold};`;
       }
     }}
+
+    ${({ theme }) => theme.mobile`
+     text-align: left;
+     width: calc(100% - 50px);
+         word-break: normal;
+     font-size: ${theme.mFontSize.default};
+  `}
   `;
 
   const ImageBox = styled.div`
     width: 100%;
-
     ${(props) => {
       if (props.vertical) {
         return (
@@ -109,12 +131,22 @@ const Itmom = () => {
         margin: 0px 5px 50px 5px;
       }
     }
+
+    ${({ theme }) => theme.mobile`
+      img {
+        width: 100%;
+      }
+  `}
   `;
 
   return (
     <>
       <Head>
         <title>앞니 심미보철 | Venuss</title>
+        <meta
+          content="initial-scale=1, maximum-scale=1, user-scalable=0"
+          name="viewport"
+        />
       </Head>
       <AppLayout>
         <div>
@@ -126,6 +158,7 @@ const Itmom = () => {
                 </ImageBox>
               }
               color="beige"
+              padding="50px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -145,6 +178,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="beige"
+              padding="20px 0px !important"
             />
           </Part>
 
@@ -153,7 +187,7 @@ const Itmom = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>잇몸 선</em>
                       </li>
@@ -162,6 +196,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -174,6 +209,7 @@ const Itmom = () => {
                 </>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -216,6 +252,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -228,6 +265,7 @@ const Itmom = () => {
                 </>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -250,6 +288,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -262,6 +301,7 @@ const Itmom = () => {
                 </>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -278,6 +318,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="20px 0px 30px 0px !important"
             />
           </Part>
 
@@ -286,7 +327,7 @@ const Itmom = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>잇몸 색</em>
                       </li>
@@ -295,6 +336,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="beige"
+              padding="10px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -318,6 +360,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -330,6 +373,7 @@ const Itmom = () => {
                 </>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -346,6 +390,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -358,6 +403,7 @@ const Itmom = () => {
                 </>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -370,6 +416,7 @@ const Itmom = () => {
                 </>
               }
               color="beige"
+              padding="0px 0"
             />
 
             <VDiv
@@ -382,6 +429,7 @@ const Itmom = () => {
                 </>
               }
               color="beige"
+              padding="0px 0"
             />
 
             <VDiv
@@ -404,6 +452,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="beige"
+              padding="10px 0px 20px 0px !important"
             />
           </Part>
 
@@ -412,7 +461,7 @@ const Itmom = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>블랙 트라이앵글</em>
                       </li>
@@ -421,6 +470,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="10px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -443,21 +493,21 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
             <VDiv
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>부분 교정으로 없애기</li>
-                    </ul>
-                    <ul>
                       <li>(5개월)</li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="white"
+              padding="0px !important"
             />
             <VDiv
               element={
@@ -467,23 +517,22 @@ const Itmom = () => {
                 />
               }
               color="white"
+              padding="0px !important"
             />
-
 
             <VDiv
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>라미네이트로 없애기</li>
-                    </ul>
-                    <ul>
                       <li>(너무 심하면)</li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -494,13 +543,14 @@ const Itmom = () => {
                 />
               }
               color="white"
+              padding="0px !important"
             />
 
             <VDiv
               element={
                 <TextBox horizontal>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         아무리 커도 없어지지 않는 블랙트라이앵글은 없습니다.
                       </li>
@@ -509,6 +559,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="0px !important"
             />
 
             <VDiv
@@ -519,6 +570,7 @@ const Itmom = () => {
                 />
               }
               color="white"
+              padding="0px !important"
             />
             <VDiv
               element={
@@ -528,6 +580,7 @@ const Itmom = () => {
                 />
               }
               color="white"
+              padding="0px !important"
             />
           </Part>
 
@@ -536,7 +589,7 @@ const Itmom = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>잇몸 성형</em>
                       </li>
@@ -545,6 +598,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="beige"
+              padding="10px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -554,9 +608,10 @@ const Itmom = () => {
                     <ul>
                       <li>
                         잇몸이 너무 긴 분은 잇몸을 성형하는 것만으로도 놀랄 만큼
-                        좋아집니다. 제대로 한 잇몸 성형은 <em>열 교정 부럽지 않습니다.</em>
+                        좋아집니다. 제대로 한 잇몸 성형은{" "}
+                        <em>열 교정 부럽지 않습니다.</em>
                       </li>
-                      <li></li>
+                      <li />
                     </ul>
                     <ul>
                       <li>
@@ -568,6 +623,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -578,6 +634,7 @@ const Itmom = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -588,6 +645,7 @@ const Itmom = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
           </Part>
 
@@ -596,7 +654,7 @@ const Itmom = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>도자기 잇몸</em>
                       </li>
@@ -605,6 +663,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="10px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -614,6 +673,7 @@ const Itmom = () => {
                 </ImageBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -641,6 +701,7 @@ const Itmom = () => {
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -651,6 +712,7 @@ const Itmom = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
             <VDiv
               element={
@@ -660,6 +722,8 @@ const Itmom = () => {
                 />
               }
               color="white"
+              padding="0px"
+
             />
           </Part>
         </div>

@@ -43,11 +43,24 @@ const Gyojung = () => {
     font-size: ${(props) => props.theme.fontSize.default};
     word-break: keep-all;
 
+    ${({ theme }) => theme.mobile`
+     text-align: left;
+         word-break: normal;
+     width: calc(100% - 50px);
+     font-size: ${theme.mFontSize.default};
+  `}
+
     ul {
       width: 100%;
       list-style: none;
       padding-left: 0;
       padding-bottom: 10px;
+      &.center {
+        ${({ theme }) => theme.mobile`
+          text-align: center;
+          font-size: ${theme.mFontSize.bold} !important;
+        `}
+      }
     }
 
     ._list {
@@ -59,6 +72,11 @@ const Gyojung = () => {
       ul {
         list-style: circle;
       }
+
+      ${({ theme }) => theme.mobile`
+          margin: 0px;
+          padding: 10px 20px;
+       `}
     }
 
     ._ul_underline {
@@ -166,6 +184,10 @@ const Gyojung = () => {
     <>
       <Head>
         <title>앞니교정 | Venuss</title>
+        <meta
+          content="initial-scale=1, maximum-scale=1, user-scalable=0"
+          name="viewport"
+        />
       </Head>
       <AppLayout>
         <div>
@@ -178,6 +200,11 @@ const Gyojung = () => {
                       <li>
                         앞니는 크게, <em>교정</em>해야 할 환자와 <em>보철</em>
                         해야 할 환자로 나뉘고 이 결정을 잘 하는 것이 중요합니다.
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        {" "}
                         앞니 비극의 대부분은 교정할 환자를 보철했을 때
                         발생합니다.
                       </li>
@@ -189,6 +216,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="beige"
+              padding="20px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -198,6 +226,7 @@ const Gyojung = () => {
                 </ImageBox>
               }
               color="beige"
+              padding="10px 0px 0px 0px"
             />
 
             <VDiv
@@ -209,8 +238,13 @@ const Gyojung = () => {
                         교정은 모든 앞니 치료에서 <em>보철보다 우선</em>이 되는
                         치료입니다. 저는 결코 교정 장치가 불편하고 치료의 기간이
                         길다는 단점을 내세우며 교정할 환자에게 보철을 권하지
-                        않습니다. 다행스럽게도 요즈음엔 부분 교정도 있고 기간이
-                        짧아지기도 했고 장치도 많이 좋아졌습니다.
+                        않습니다.
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        다행스럽게도 요즈음엔 부분 교정도 있고 기간이 짧아지기도
+                        했고 장치도 많이 좋아졌습니다.
                       </li>
                     </ul>
                     <div className="_list">
@@ -246,6 +280,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="beige"
+              padding="10px 0px 50px 0px !important"
             />
           </Part>
 
@@ -254,7 +289,7 @@ const Gyojung = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>짧은 교정</em>
                       </li>
@@ -269,6 +304,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="white"
+              padding="10px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -279,6 +315,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -289,6 +326,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
 
@@ -297,7 +335,7 @@ const Gyojung = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>틈이 있는 앞니들(10개월)</em>
                       </li>
@@ -306,6 +344,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="beige"
+              padding="20px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -316,6 +355,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -326,6 +366,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
 
@@ -334,7 +375,7 @@ const Gyojung = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>아랫니 부분교정 3~6개월</em>
                       </li>
@@ -343,6 +384,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="white"
+              padding="10px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -353,6 +395,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -363,6 +406,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
 
@@ -371,7 +415,7 @@ const Gyojung = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>비발치 교정(10~18개월)</em>
                       </li>
@@ -385,6 +429,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="beige"
+              padding="20px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -395,6 +440,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -405,6 +451,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
             <VDiv
               element={
@@ -414,6 +461,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -424,6 +472,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -434,6 +483,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px 0px 50px 0px !important"
             />
           </Part>
 
@@ -442,7 +492,7 @@ const Gyojung = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>발치 교정(18~24개월)</em>
                       </li>
@@ -450,10 +500,16 @@ const Gyojung = () => {
                     <ul>
                       <li>
                         발치 교정은 골격에 문제가 있거나 입이 너무 튀어나왔을
-                        때, 발치를 하지 않으면 답이 없을 때 합니다. 무분별한
-                        발치 교정을 하지 않는 것도 중요하지만 발치 교정이 필요할
-                        때는 발치교정을 꼭 하는 것도 중요합니다.
+                        때, 발치를 하지 않으면 답이 없을 때 합니다.
                       </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        무분별한 발치 교정을 하지 않는 것도 중요하지만 발치
+                        교정이 필요할 때는 발치교정을 꼭 하는 것도 중요합니다.
+                      </li>
+                    </ul>
+                    <ul>
                       <li>
                         이 때 부작용 없는 교정이 무엇보다도 중요합니다. 발치 할
                         때는 마음이 아프지만 교정 후 치열뿐만 아니라 얼굴형도
@@ -465,6 +521,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="white"
+              padding="20px 0px 0px 0px !important"
             />
             <VDiv
               element={
@@ -474,6 +531,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
             <VDiv
               element={
@@ -484,6 +542,7 @@ const Gyojung = () => {
                 </ImageBox>
               }
               color="white"
+              padding="0px !important"
             />
           </Part>
 
@@ -492,7 +551,7 @@ const Gyojung = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>중년 발치 교정 (45~55세)</em>
                       </li>
@@ -501,15 +560,19 @@ const Gyojung = () => {
                       <li>
                         50대인데 비발치 교정이라면 몰라도 치아 4개를 발치 한다면
                         후유증을 걱정하지만 발치를 해도 안전하게 교정할 수 있는
-                        여러가지 방법이 있습니다. 울퉁불퉁한 치열에 한이 맺힌
-                        분들은 더 이상 그대로 늙지 않아도 됩니다. 만약 안되는
-                        케이스는 사전에 하지 말라고 합니다.
+                        여러가지 방법이 있습니다.
+                      </li>
+                      <li>
+                        울퉁불퉁한 치열에 한이 맺힌 분들은 더 이상 그대로 늙지
+                        않아도 됩니다. 만약 안되는 케이스는 사전에 하지 말라고
+                        합니다.
                       </li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="beige"
+              padding="20px 0px 0px 0px !important"
             />
 
             <VDiv
@@ -520,6 +583,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -531,6 +595,7 @@ const Gyojung = () => {
                 </ImageBox>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -541,6 +606,7 @@ const Gyojung = () => {
                 />
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -552,6 +618,7 @@ const Gyojung = () => {
                 </ImageBox>
               }
               color="beige"
+              padding="0px !important"
             />
           </Part>
 
@@ -560,7 +627,7 @@ const Gyojung = () => {
               element={
                 <TextBox>
                   <Text bigger>
-                    <ul>
+                    <ul className="center">
                       <li>
                         <em>교정 + 보철</em>
                       </li>
@@ -569,15 +636,19 @@ const Gyojung = () => {
                       <li>
                         재보철 환자 중에 교정을 먼저 해야 케이스를 망치지 않는
                         환자가 의외로 많습니다. 저는 그럴 때 교정을 권하기를
-                        주저하지 않습니다. 이번에 교통정리가 잘 되어야 한이 남는
-                        치료가 되지 않고 계속 아름다우며 언젠가 보철을 다시 할
-                        때는 간단히 보철만 바꾸면 됩니다.
+                        주저하지 않습니다.
+                      </li>
+                      <li>
+                        이번에 교통정리가 잘 되어야 한이 남는 치료가 되지 않고
+                        계속 아름다우며 언젠가 보철을 다시 할 때는 간단히 보철만
+                        바꾸면 됩니다.
                       </li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="white"
+              padding="20px 0px 0px 0px !important"
             />
             <VDiv
               element={
@@ -586,13 +657,14 @@ const Gyojung = () => {
                     <ul>
                       <li>
                         중앙선이 치우쳐 있어서 앞니가 이상해 보이므로 중앙선
-                        문제를 교정으로 잡은 후 재보철
+                        문제를 교정으로 잡은 후 재보철합니다.
                       </li>
                     </ul>
                   </Text>
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -603,6 +675,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
             <VDiv
               element={
@@ -612,6 +685,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -628,6 +702,7 @@ const Gyojung = () => {
                 </TextBox>
               }
               color="white"
+              padding="0px"
             />
 
             <VDiv
@@ -638,6 +713,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px"
             />
             <VDiv
               element={
@@ -647,6 +723,7 @@ const Gyojung = () => {
                 />
               }
               color="white"
+              padding="0px 0px 70px 0px !important"
             />
           </Part>
         </div>

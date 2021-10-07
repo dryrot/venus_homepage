@@ -7,10 +7,7 @@ import TempReviewOne from "./tempReviewOne.json";
 import ReviewOne from "./reviewOne";
 
 const Review = () => {
-  // const tempReview = TempReviewOne;
   const tempReview = TempReview;
-  const [showBox, setShowBox] = useState();
-
   const Title = styled.div`
     display: flex;
     justify-content: center;
@@ -18,6 +15,10 @@ const Review = () => {
     height: 130px;
     font-weight: 600;
     font-size: 30px;
+    ${({ theme }) => theme.mobile`
+     font-size: ${theme.mFontSize.semiBold};
+     height: 100px;
+  `}
   `;
 
   const ContentsBox = styled.div`
@@ -26,6 +27,9 @@ const Review = () => {
     justify-content: center;
     width: 100%;
     flex-shrink: 0;
+    ${({ theme }) => theme.mobile`
+      justify-content: end;
+    `}
   `;
 
   const Contents = styled.div`
@@ -37,10 +41,19 @@ const Review = () => {
     height: calc(100vh - 550px);
     overflow: hidden;
     box-shadow: -1px 1px 4px #51515157;
-    
+
     ${({ theme }) => theme.desktop`
         width: calc(100vw - 2000px);
         height: auto;
+    `}
+
+    ${({ theme }) => theme.mobile`
+        height: 300px;
+        width: 100%;
+        img {
+         height: 300px;
+          object-fit: cover;
+        }
     `}
   `;
 
@@ -53,11 +66,12 @@ const Review = () => {
 
   const BoardBox = styled.div`
     width: calc(100% - 500px);
-    
-     
     ${({ theme }) => theme.desktop`
         width: calc(100vw - 2000px);
         height: auto;
+    `}
+    ${({ theme }) => theme.mobile`
+        width: 100%;
     `}
   `;
 
@@ -65,6 +79,10 @@ const Review = () => {
     <>
       <Head>
         <title>치료후기 | Venuss</title>
+        <meta
+          content="initial-scale=1, maximum-scale=1, user-scalable=0"
+          name="viewport"
+        />
       </Head>
       <AppLayout>
         <Title>비너스 치료후기</Title>
@@ -82,7 +100,7 @@ const Review = () => {
                 <ReviewOne
                   review={item}
                   id={boxId}
-                  showYn={id => {
+                  showYn={(id) => {
                     return boxId === id;
                   }}
                 />

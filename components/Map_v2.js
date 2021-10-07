@@ -22,6 +22,19 @@ const Map2 = (props) => {
 
       border-bottom: 1px solid #ddd;
     }
+
+    ._desktop {
+      ${({ theme }) => theme.mobile`
+        display: none;
+    `}
+    }
+
+    ._mobile {
+      display: none;
+      ${({ theme }) => theme.mobile`
+        display: block;
+    `}
+    }
   `;
 
   const AddressBox = styled.div`
@@ -29,11 +42,8 @@ const Map2 = (props) => {
     align-items: center;
     justify-content: center;
     width: 100%;
-    //height: calc(100% - 400px);
-    //height: 40%;
     background-color: #c9ada7;
     height: 100%;
-    //border-radius: 0 0 5px 5px;
     box-sizing: border-box;
     padding: 30px 50px;
 
@@ -53,6 +63,13 @@ const Map2 = (props) => {
       color: #f57b47;
       border-radius: 50%;
     }
+    
+     ${({ theme }) => theme.mobile`
+       padding: 18px;
+       & div:first-child {
+        margin-top: 0;
+       }
+    `}
   `;
 
   const AddressList = styled.div`
@@ -78,12 +95,24 @@ const Map2 = (props) => {
         return `font-size: ${props.theme.fontSize.semiBold}; font-weight: 600;`;
       }
     }}
+     ${({ theme }) => theme.mobile`
+        margin: 5px 0px;
+        font-size: ${theme.mFontSize.reviewSmall};
+            word-break: keep-all;
+    `}
   `;
 
   const AddressTitle = styled.div`
     font-size: ${(props) => props.theme.fontSize.semiBold};
     color: ${(props) => props.theme.darkestSpace};
     //border-bottom: 1px solid;
+    
+     ${({ theme }) => theme.mobile`
+        font-size: ${theme.mFontSize.review};
+        font-weight: 600;
+        margin-top: 15px;
+        
+    `}
   `;
 
   useEffect(() => {
@@ -112,33 +141,35 @@ const Map2 = (props) => {
   }, []);
 
   return (
-    <MapBox>
-      <script
-        type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7bff6a5ee2158886afc9a17f94239d"
-      />
-      <div id="map_container" />
-      <AddressBox>
-        <div>
-          <AddressTitle>주소</AddressTitle>
-          <AddressList>
-            강남구 논현로 841, JB미소빌딩 B105호, 비너스치과 (압구정역{" "}
-            <em>4번</em>출구)
-            <br />
-          </AddressList>
-          <AddressTitle>진료시간</AddressTitle>
-          <AddressList>
-            평일 <em>오전 10:30 - 오후 06:00</em>
-            <br />
-            토요일 오전 <em>10:30 - 오후 02:00</em>
-            <br />
-            목요일 / 일요일 / 공휴일 휴무
-          </AddressList>
-          <AddressTitle>문의전화</AddressTitle>
-          <AddressList phone>02-3445-9716</AddressList>
-        </div>
-      </AddressBox>
-    </MapBox>
+    <>
+      <MapBox>
+        <script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7bff6a5ee2158886afc9a17f94239d"
+        />
+        <div id="map_container" />
+        <AddressBox>
+          <div>
+            <AddressTitle>주소</AddressTitle>
+            <AddressList>
+              강남구 논현로 841, JB미소빌딩 B105호, 비너스치과 (압구정역{" "}
+              <em>4번</em>출구)
+              <br />
+            </AddressList>
+            <AddressTitle>진료시간</AddressTitle>
+            <AddressList>
+              평일 <em>오전 10:30 - 오후 06:00</em>
+              <br />
+              토요일 오전 <em>10:30 - 오후 02:00</em>
+              <br />
+              목요일 / 일요일 / 공휴일 휴무
+            </AddressList>
+            <AddressTitle>문의전화</AddressTitle>
+            <AddressList phone>02-3445-9716</AddressList>
+          </div>
+        </AddressBox>
+      </MapBox>
+    </>
   );
 };
 

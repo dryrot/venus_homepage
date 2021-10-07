@@ -6,10 +6,16 @@ import { VDiv, Section } from "../components/VDiv";
 
 const Part = styled.div`
   ${Section}:first-child {
-    padding-top: 100px;
+    ${({ theme }) => theme.mobile`
+      height: 100%;                   
+    `}
   }
   ${Section}:last-child {
     padding-bottom: 200px;
+    ${({ theme }) => theme.mobile`
+      padding-bottom: 100px;
+      padding-top: 100px !important;                   
+    `}
   }
 `;
 
@@ -36,6 +42,10 @@ const About = () => {
           return `width: ${props.size};`;
         }
       }}
+
+      ${({ theme }) => theme.mobile`
+        width: calc(100vw + 200px);
+    `}
     }
   `;
 
@@ -49,10 +59,13 @@ const About = () => {
         return `width: 600px;`;
       }
       if (props.size !== undefined) {
-        console.log(props.size);
         return `width: ${props.size};`;
       }
     }}
+
+    ${({ theme }) => theme.mobile`
+     width: calc(100% - 50px);
+  `}
   `;
 
   const Text = styled.div`
@@ -76,6 +89,11 @@ const About = () => {
           return "line-height: 1.5;";
         }
       }}
+
+      ${({ theme }) => theme.mobile`
+     margin-bottom: 10px;
+    
+  `}
     }
 
     ${(props) => {
@@ -87,12 +105,27 @@ const About = () => {
         return `margin-top: 180px; ul:first-child { font-size: ${props.theme.fontSize.semiBold}; }`;
       }
     }}
+
+    ${({ theme }) => theme.mobile`
+        word-break: normal;
+     font-size: ${theme.mFontSize.default};
+     ul._m { font-size: ${theme.mFontSize.bold} };
+       ${(props) => {
+         if (props.bigger) {
+           return `margin-top: 0`;
+         }
+       }}
+  `}
   `;
 
   return (
     <>
       <Head>
         <title>원장 인사말 | Venuss</title>
+        <meta
+          content="initial-scale=1, maximum-scale=1, user-scalable=0"
+          name="viewport"
+        />
       </Head>
       <AppLayout>
         <div>
@@ -101,7 +134,7 @@ const About = () => {
               element={
                 <TextBox size="700px">
                   <Text bigger>
-                    <ul className="_bold">
+                    <ul className="_bold _m">
                       <li>
                         저는 앞니만 치료하는 고도로 특화된 치과의사입니다.
                       </li>
@@ -119,13 +152,14 @@ const About = () => {
                 </ImageBox>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
               element={
                 <TextBox horizontal>
                   <Text bigger>
-                    <ul className="_bold">
+                    <ul className="_bold _m">
                       <li>
                         저는 지나 온 긴 임상기간동안 앞니의 문제로 고통받는 많은
                         환자들을 맞이하였습니다.
@@ -135,6 +169,7 @@ const About = () => {
                 </TextBox>
               }
               color="beige"
+              padding="30px 0px 0px 0px"
             />
 
             <VDiv
@@ -151,6 +186,8 @@ const About = () => {
                       <li>
                         저도 충분히 이해하다시피, 비너스에 오는 환자분들은 그런
                         세월을 너무 오래 겪은 나머지 마지막 순간까지 불안합니다.
+                      </li>
+                      <li>
                         오로지 저 하나만을 믿고 버텨야만 하는 치료의 시간들. 이
                         의사가 나의 아픔을 해결해 줄 사람인가? 또다시 망치지는
                         않을까?
@@ -161,6 +198,8 @@ const About = () => {
                         결국은 스스로의 몸으로 겪는 터널을 통과해야만 알 수 있는
                         최종 결과를 불안해하는 환자의 마음을 저는 알고 있습니다.
                       </li>
+                    </ul>
+                    <ul>
                       <li>
                         환자의 마음 속 어딘가에 있다고 하는 전설 속의 앞니를
                         구현해내는 것은, 깊은 호수 바닥 어딘가에 꽂혀 있다고
@@ -179,6 +218,7 @@ const About = () => {
                 </TextBox>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv
@@ -202,6 +242,7 @@ const About = () => {
                 </TextBox>
               }
               color="beige"
+              padding="0px"
             />
 
             <VDiv

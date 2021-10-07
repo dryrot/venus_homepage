@@ -53,9 +53,9 @@ const Navigator = () => {
     `}
     ${({ theme }) => theme.mobile`
       width: 100vw;
-          margin: 7px;
-    border-bottom: 1px solid #4a4e69;
-        padding-bottom: 10px;
+      margin: 7px;
+      border-bottom: 1px solid #4a4e69;
+      padding-bottom: 10px;
     `}
   `;
 
@@ -160,11 +160,16 @@ const Navigator = () => {
 
   const MNaviList = styled.div`
     width: 100%;
-    margin-left: 40px;
+    margin: 0px 0px 75px 40px;
   `;
   const MNaviItem = styled.div`
-    border-bottom: 1px solid;
+    border-bottom: 1px solid ${(props) => props.theme.darkestSpace};
     padding: 10px 0px;
+    &._home {
+      margin-bottom: 30px;
+      text-align: end;
+      padding-right: 30px;
+    }
   `;
 
   const MMenuClose = styled.div`
@@ -186,6 +191,9 @@ const Navigator = () => {
           <i className="ri-close-line" />
         </MMenuClose>
         <MNaviList>
+          <MNaviItem className="_home">
+            <Link href="/">Home</Link>
+          </MNaviItem>
           {NaviList.map((item) => {
             return (
               <MNaviItem>

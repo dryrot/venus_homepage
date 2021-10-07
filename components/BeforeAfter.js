@@ -5,6 +5,9 @@ const BeforeAfter = (props) => {
   const BeAfBox = styled.div`
     width: 100%;
     height: ${props.imgHeight || "600px"};
+        ${({ theme }) => theme.mobile`
+     max-height: 200px;
+  `}
   `;
 
   const BeAfContents = styled.div`
@@ -18,10 +21,9 @@ const BeforeAfter = (props) => {
     width: 100%;
     height: 100%;
     background-image: url(${(props) => props.imgSrc});
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    // background-color: ${props => props.theme.darkSpace};
 
     &:last-child {
       animation-name: fade;
