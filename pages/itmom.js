@@ -31,7 +31,7 @@ const Itmom = () => {
         return `padding: 90px;`;
       }
       if (props.horizontal) {
-        return `width: 700px; text-align:center;`;
+        return `width: 700px;`;
       }
     }}
   `;
@@ -225,7 +225,10 @@ const Itmom = () => {
                     <ul>
                       <ul>
                         <li>
-                          원래 교정을 했으면 좋았을 것을, 보철로 억지로 맞추면
+                          원래 교정을 했으면 좋았을 것을,
+                        </li>
+                        <li>
+                          보철로 억지로 맞추면
                           치열의 문제는 잇몸문제로 바뀝니다.
                         </li>
                       </ul>

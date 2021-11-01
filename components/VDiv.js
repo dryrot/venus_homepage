@@ -9,6 +9,7 @@ export const Section = styled.div`
   padding: 60px 0;
   background-color: ${(props) =>
     props.color === "beige" ? props.theme.lightBeige : "#fff"};
+ 
   ${({ theme }) => theme.mobile`
      padding: 30px 0;
      ${(props) => {
@@ -36,6 +37,9 @@ const Contents = styled.div`
   justify-content: center;
   background-color: ${(props) =>
     props.color === "beige" ? props.theme.lightBeige : "#fff"};
+ ${({ theme }) => theme.laptop`
+        width: calc(100vw);
+  `}
 
   ${({ theme }) => theme.desktop`
         width: calc(100vw - 2000px);

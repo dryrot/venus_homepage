@@ -19,9 +19,16 @@ export const mFontSize = {
   bold: "23px",
   navigator: "25px",
   title: "25px",
-  review: "18px",
+  review: "16px",
   reviewSmall: "15px",
+  index: "50px",
+  indexTitle: "35px",
 };
+
+export const lFontSize = {
+  navigator: "23px",
+  footer: "16px",
+}
 
 export const contentWidth = "950px";
 

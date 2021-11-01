@@ -42,16 +42,21 @@ const Review = () => {
     overflow: hidden;
     box-shadow: -1px 1px 4px #51515157;
 
+     ${({ theme }) => theme.laptop`
+        width: calc(100vw - 100px);
+        height: 350px;
+    `}
+
     ${({ theme }) => theme.desktop`
         width: calc(100vw - 2000px);
         height: auto;
     `}
 
     ${({ theme }) => theme.mobile`
-        height: 300px;
+        height: 150px;
         width: 100%;
         img {
-         height: 300px;
+         height: 150px;
           object-fit: cover;
         }
     `}
@@ -66,6 +71,10 @@ const Review = () => {
 
   const BoardBox = styled.div`
     width: calc(100% - 500px);
+        ${({ theme }) => theme.laptop`
+        width: calc(100vw - 100px);
+        height: 350px;
+    `}
     ${({ theme }) => theme.desktop`
         width: calc(100vw - 2000px);
         height: auto;

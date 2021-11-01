@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ReviewBox = styled.div`
   width: 100%;
-  background-color: #fff;
+  background-color: #ffffffc7;
   margin-bottom: 50px;
   overflow: hidden;
 
@@ -21,8 +21,8 @@ const ReviewBox = styled.div`
   `}
   }
   ${({ theme }) => theme.mobile`
-    margin: 50px 25px;
-    width: calc(100% - 50px);
+    margin: 50px 15px;
+    width: calc(100% - 28px);
   `}
 `;
 
@@ -63,6 +63,7 @@ const ReviewContent = styled.div`
   ${({ theme }) => theme.mobile`
     padding: 12px;
     font-size: ${theme.mFontSize.review};
+    font-weight: 100;
     `}
 `;
 
@@ -136,6 +137,10 @@ const ReviewOne = (props) => {
     div {
       margin-right: 10px;
     }
+       }
+    ${({ theme }) => theme.mobile`
+      font-size: ${theme.mFontSize.review};
+    `}
   `;
 
   return (

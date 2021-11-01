@@ -1,10 +1,10 @@
 import { css } from "styled-components";
 
 const deviceSizes = {
-  mobile: [0, 375],
-  tablet: [376, 768],
-  laptop: [769, 1024],
-  retina: [1025, 1920],
+  mobile: [0, 414],
+  tablet: [415, 768],
+  laptop: [769, 1280],
+  retina: [1281, 1920],
   desktop: [1921, 10000],
 };
 

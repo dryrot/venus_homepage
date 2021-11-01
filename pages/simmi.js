@@ -114,8 +114,8 @@ const Simmi = () => {
       }}
 
       ${({ theme }) => theme.mobile`
-     width: 100vw;
-  `}
+        width: 100vw;
+      `}
     }
 
     ._div_vertical {
@@ -137,6 +137,16 @@ const Simmi = () => {
         margin: 0px 5px 50px 5px;
       }
     }
+
+    ${({ theme }) => theme.laptop`
+     img {
+     ${(props) => {
+       if (props.img1) {
+         return "width: 100%; margin-left: 45px;";
+       }
+     }}}
+     
+  `}
   `;
 
   const MBox = styled.div`
@@ -348,7 +358,7 @@ const Simmi = () => {
             <VDiv
               element={
                 <>
-                  <ImageBox>
+                  <ImageBox img1>
                     <img src="/image/simmi/1.jpg" />
                   </ImageBox>
                   <TextBox>

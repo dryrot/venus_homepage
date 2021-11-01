@@ -63,8 +63,8 @@ const Map2 = (props) => {
       color: #f57b47;
       border-radius: 50%;
     }
-    
-     ${({ theme }) => theme.mobile`
+
+    ${({ theme }) => theme.mobile`
        padding: 18px;
        & div:first-child {
         margin-top: 0;
@@ -106,8 +106,8 @@ const Map2 = (props) => {
     font-size: ${(props) => props.theme.fontSize.semiBold};
     color: ${(props) => props.theme.darkestSpace};
     //border-bottom: 1px solid;
-    
-     ${({ theme }) => theme.mobile`
+
+    ${({ theme }) => theme.mobile`
         font-size: ${theme.mFontSize.review};
         font-weight: 600;
         margin-top: 15px;
@@ -116,12 +116,12 @@ const Map2 = (props) => {
   `;
 
   useEffect(() => {
-    const mapCenter = new kakao.maps.LatLng(
+    const mapCenter = new window.kakao.maps.LatLng(
       37.525111197891455,
       127.02800845792338
     );
 
-    const clinicCoor = new kakao.maps.LatLng(
+    const clinicCoor = new window.kakao.maps.LatLng(
       37.524060723212266,
       127.02799512416581
     );
@@ -137,7 +137,7 @@ const Map2 = (props) => {
       level: 3,
       marker: markers,
     };
-    const map = new kakao.maps.StaticMap(mapContainer, mapOptions);
+    const map = new window.kakao.maps.StaticMap(mapContainer, mapOptions);
   }, []);
 
   return (

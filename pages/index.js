@@ -7,8 +7,17 @@ import Map2 from "../components/Map_v2";
 import ReviewPreview from "../components/ReviewPreview";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import MobileIndex from "./mobileIndex";
 
 export default function Home() {
+  const Desktop = styled.div`
+    display: block;
+
+    ${({ theme }) => theme.mobile`
+        display: none;
+    `}
+  `;
+
   const Section = styled.div`
     width: 100%;
     display: inline-block;
@@ -152,51 +161,6 @@ export default function Home() {
     }
   `;
 
-  const MobileBox = styled.div`
-    display: none;
-    ${Contents} {
-      ${({ theme }) => theme.mobile`
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      `}
-    }
-
-    ${({ theme }) => theme.mobile`
-      display: block;
-      height: 100%;
-      position: relative;
-    `}
-  `;
-
-  const MImgBox = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 500px;
-    text-align: center;
-    overflow: hidden;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    img {
-      height: 500px;
-      margin: 0 -100%;
-    }
-    span {
-      position: sticky;
-      bottom: 50%;
-      //right: 50%;
-      left: 0;
-      color: #fff;
-      font-size: ${(props) => props.theme.mFontSize.bold};
-      text-shadow: 1px 1px 2px #0000005e;
-    }
-    background-image: url(${(props) => props.imgSrc});
-    margin: 30px 0px;
-  `;
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -213,7 +177,7 @@ export default function Home() {
         />
       </Head>
       <AppLayout>
-        <div>
+        <Desktop>
           <Section>
             <Title>자연스럽게 아름다워지는 치과, 비너스</Title>
             <ContentsBox violet>
@@ -250,44 +214,7 @@ export default function Home() {
                 </ImgBox>
               </Contents>
             </ContentsBox>
-
-            <MobileBox>
-              <Contents className="m_img1">
-                <MImgBox
-                  imgSrc="/image/home_profession_5.jpg"
-                  data-aos="fade-right"
-                >
-                  {/* <img src="/image/about_1.jpg" /> */}
-                  <span>앞니 심미보철</span>
-                </MImgBox>
-              </Contents>
-            </MobileBox>
-            <MobileBox>
-              <Contents className="m_img2">
-                <MImgBox imgSrc="/image/home_profession_2.jpg" data-aos="fade-left">
-                  {/* <img src="/image/home_profession_2.jpg" /> */}
-                  <span>앞니 잇몸치료</span>
-                </MImgBox>
-              </Contents>
-            </MobileBox>
-            <MobileBox>
-              <Contents className="m_img3">
-                <MImgBox imgSrc="/image/home_profession_3.jpg" data-aos="fade-right">
-                  {/* <img src="/image/home_profession_3.jpg" /> */}
-                  <span>임플란트</span>
-                </MImgBox>
-              </Contents>
-            </MobileBox>
-            <MobileBox>
-              <Contents className="m_img4">
-                <MImgBox imgSrc="/image/home_profession_4.jpg" data-aos="fade-left">
-                  {/* <img src="/image/home_profession_4.jpg" /> */}
-                  <span>앞니교정</span>
-                </MImgBox>
-              </Contents>
-            </MobileBox>
           </Section>
-
           {/* End of Section2 */}
 
           <Section padding="30px 0px 0px 0px">
@@ -308,7 +235,9 @@ export default function Home() {
               </Contents>
             </ContentsBox>
           </Section>
-        </div>
+        </Desktop>
+
+        <MobileIndex />
       </AppLayout>
     </>
   );
