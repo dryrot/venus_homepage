@@ -210,7 +210,10 @@ const Simmi = () => {
               element={
                 <>
                   <ImageBox>
-                    <img src="/image/simmi/simmi_1.jpg" />
+                    <img
+                      src="/image/simmi/simmi_1.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                   <TextBox vertical>
                     <Text>
@@ -359,7 +362,10 @@ const Simmi = () => {
               element={
                 <>
                   <ImageBox img1>
-                    <img src="/image/simmi/1.jpg" />
+                    <img
+                      src="/image/simmi/1.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                   <TextBox>
                     <Text>
@@ -436,7 +442,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/2.jpg" />
+                    <img
+                      src="/image/simmi/2.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="beige"
@@ -446,7 +455,10 @@ const Simmi = () => {
                 element={
                   <>
                     <ImageBox wider>
-                      <img src="/image/simmi/3.jpg" />
+                      <img
+                        src="/image/simmi/3.jpg"
+                        alt="이미지를 불러올 수 없습니다."
+                      />
                     </ImageBox>
                   </>
                 }
@@ -474,7 +486,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/4.jpg" />
+                    <img
+                      src="/image/simmi/4.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="beige"
@@ -483,7 +498,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/5.jpg" />
+                    <img
+                      src="/image/simmi/5.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="beige"
@@ -492,7 +510,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/6.jpg" />
+                    <img
+                      src="/image/simmi/6.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="beige"
@@ -520,7 +541,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/7.jpg" />
+                    <img
+                      src="/image/simmi/7.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="beige"
@@ -529,7 +553,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/8.jpg" />
+                    <img
+                      src="/image/simmi/8.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="beige"
@@ -575,7 +602,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/9.jpg" />
+                    <img
+                      src="/image/simmi/9.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="white"
@@ -585,7 +615,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/10.jpg" />
+                    <img
+                      src="/image/simmi/10.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="white"
@@ -595,7 +628,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/11.jpg" />
+                    <img
+                      src="/image/simmi/11.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="white"
@@ -605,7 +641,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/12.jpg" />
+                    <img
+                      src="/image/simmi/12.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="white"
@@ -633,7 +672,10 @@ const Simmi = () => {
               <VDiv
                 element={
                   <ImageBox wider>
-                    <img src="/image/simmi/13.jpg" />
+                    <img
+                      src="/image/simmi/13.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                 }
                 color="white"

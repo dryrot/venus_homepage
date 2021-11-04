@@ -154,7 +154,10 @@ const Itmom = () => {
             <VDiv
               element={
                 <ImageBox size="800px">
-                  <img src="/image/itmom/itmom_1.jpg" />
+                  <img
+                    src="/image/itmom/itmom_1.jpg"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                 </ImageBox>
               }
               color="beige"
@@ -224,12 +227,10 @@ const Itmom = () => {
                     </ul>
                     <ul>
                       <ul>
+                        <li>원래 교정을 했으면 좋았을 것을,</li>
                         <li>
-                          원래 교정을 했으면 좋았을 것을,
-                        </li>
-                        <li>
-                          보철로 억지로 맞추면
-                          치열의 문제는 잇몸문제로 바뀝니다.
+                          보철로 억지로 맞추면 치열의 문제는 잇몸문제로
+                          바뀝니다.
                         </li>
                       </ul>
                       <ul>
@@ -672,7 +673,10 @@ const Itmom = () => {
             <VDiv
               element={
                 <ImageBox vertical image4 size="800px">
-                  <img src="/image/itmom/27.jpg" />
+                  <img
+                    src="/image/itmom/27.jpg"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                 </ImageBox>
               }
               color="white"
@@ -726,7 +730,6 @@ const Itmom = () => {
               }
               color="white"
               padding="0px"
-
             />
           </Part>
         </div>

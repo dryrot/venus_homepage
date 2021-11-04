@@ -148,7 +148,10 @@ const About = () => {
             <VDiv
               element={
                 <ImageBox vertical size="800px">
-                  <img src="/image/about_5.png" />
+                  <img
+                    src="/image/about_5.png"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                 </ImageBox>
               }
               color="beige"

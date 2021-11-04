@@ -42,7 +42,7 @@ const Review = () => {
     overflow: hidden;
     box-shadow: -1px 1px 4px #51515157;
 
-     ${({ theme }) => theme.laptop`
+    ${({ theme }) => theme.laptop`
         width: calc(100vw - 100px);
         height: 350px;
     `}
@@ -71,7 +71,7 @@ const Review = () => {
 
   const BoardBox = styled.div`
     width: calc(100% - 500px);
-        ${({ theme }) => theme.laptop`
+    ${({ theme }) => theme.laptop`
         width: calc(100vw - 100px);
         height: 350px;
     `}
@@ -98,7 +98,12 @@ const Review = () => {
 
         <ContentsBox violet>
           <Contents>
-            <img src="/image/review_1.jpg" width="100%" height="auto" alt="" />
+            <img
+              src="/image/review_1.jpg"
+              width="100%"
+              height="auto"
+              alt="이미지를 불러올 수 없습니다."
+            />
           </Contents>
         </ContentsBox>
         <BoardBack>

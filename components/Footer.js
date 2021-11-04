@@ -30,7 +30,7 @@ const Footer = (props) => {
      width: 100%;
      display: none;
     `}
-     ${({ theme }) => theme.laptop`
+    ${({ theme }) => theme.laptop`
       width: calc(100% - 100px);
       font-size: ${theme.lFontSize.footer};
     `}
@@ -68,7 +68,7 @@ const Footer = (props) => {
       width: calc(100% - 700px);
     }
     //border: 1px solid #fff;
-      ${({ theme }) => theme.laptop`
+    ${({ theme }) => theme.laptop`
    &:first-child {
       width: calc(100% - 300px);
     }

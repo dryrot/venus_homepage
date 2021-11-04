@@ -197,19 +197,31 @@ export default function Home() {
             <ContentsBox className="diff">
               <Contents>
                 <ImgBox>
-                  <img src="/image/home_profession_1.jpg" />
+                  <img
+                    src="/image/home_profession_1.jpg"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                   <span>앞니 심미보철</span>
                 </ImgBox>
                 <ImgBox>
-                  <img src="/image/home_profession_2.jpg" />
+                  <img
+                    src="/image/home_profession_2.jpg"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                   <span>앞니 잇몸치료</span>
                 </ImgBox>
                 <ImgBox>
-                  <img src="/image/home_profession_3.jpg" />
+                  <img
+                    src="/image/home_profession_3.jpg"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                   <span>임플란트</span>
                 </ImgBox>
                 <ImgBox>
-                  <img src="/image/home_profession_4.jpg" />
+                  <img
+                    src="/image/home_profession_4.jpg"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                   <span>앞니교정</span>
                 </ImgBox>
               </Contents>

@@ -28,7 +28,7 @@ export const mFontSize = {
 export const lFontSize = {
   navigator: "23px",
   footer: "16px",
-}
+};
 
 export const contentWidth = "950px";
 

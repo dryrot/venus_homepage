@@ -5,7 +5,7 @@ const BeforeAfter = (props) => {
   const BeAfBox = styled.div`
     width: 100%;
     height: ${props.imgHeight || "600px"};
-        ${({ theme }) => theme.mobile`
+    ${({ theme }) => theme.mobile`
      max-height: 200px;
   `}
   `;

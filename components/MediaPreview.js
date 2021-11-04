@@ -74,7 +74,10 @@ const MediaPreview = (props) => {
         <div>{props.mediaType}</div>
       </MediaTitle>
       <MediaThumb>
-        <img src={mediaInfo[props.mediaType].img} />
+        <img
+          src={mediaInfo[props.mediaType].img}
+          alt="이미지를 불러올 수 없습니다."
+        />
         <div className="_media_title _ellipsis">
           {mediaInfo[props.mediaType].title}
         </div>

@@ -58,7 +58,7 @@ const ReviewContent = styled.div`
   width: 100%;
   padding: 0px 60px;
   height: ${(props) =>
-  props.showYn === true ? getHeight(props.boxId) : "200px"};
+    props.showYn === true ? getHeight(props.boxId) : "200px"};
   transition: height 0.7s ease-out;
   ${({ theme }) => theme.mobile`
     padding: 12px;
@@ -70,6 +70,7 @@ const ReviewContent = styled.div`
 const ReviewOne = (props) => {
   let review = props.review;
   const [showYn, setShowYn] = useState(false);
+
   const ReviewTop = styled.div`
     background-color: ${(props) => props.theme.darkSpace};
     width: 100%;
@@ -148,26 +149,24 @@ const ReviewOne = (props) => {
       <ReviewTop />
       <ReviewTitle>
         <div className="_title">
-          {review.title}
+          {review?.title || ""}
           <span className="_author">
             <i className="ri-subtract-line" />
-            {review.author}님
+            {review?.author || ""}님
           </span>
         </div>
         <span className="_more">
           <i className="ri-more-line" />
         </span>
-        {/* <span className="_author"> */}
-        {/*  <i className="ri-subtract-line" /> */}
-        {/*  {review.author}님 */}
-        {/* </span> */}
       </ReviewTitle>
       <ReviewContent boxId={props.id} showYn={showYn}>
-        {review.content.split("\n").map((str) => {
-          return <div>{str}</div>;
-        })}
+        {review?.content !== undefined
+          ? review.content.split("\n").map((str) => {
+              return <div>{str}</div>;
+            })
+          : null}
         <ReviewInfo>
-          <div>{review.author}</div>
+          <div>{review?.author || ""}</div>
           <div>2021-09-08</div>
         </ReviewInfo>
       </ReviewContent>

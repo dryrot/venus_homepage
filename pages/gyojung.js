@@ -19,7 +19,8 @@ const Gyojung = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    //width: 100%;
+    width: calc(100% - 300px);
     ${(props) => {
       if (props.vertical) {
         return `padding: 90px;`;
@@ -98,7 +99,7 @@ const Gyojung = () => {
 
     ${(props) => {
       if (props.bigger) {
-        return `text-align: center; ul:first-child { font-size: ${props.theme.fontSize.semiBold}; }`;
+        return ` ul:first-child { text-align: center; font-size: ${props.theme.fontSize.semiBold}; }`;
       }
     }}
   `;
@@ -152,34 +153,6 @@ const Gyojung = () => {
     }
   `;
 
-  const ImageGrid = styled.div`
-    ${(props) => {
-      if (props.white) {
-        return "background-color: #fff;";
-      }
-      if (props.beige) {
-        return `background-color: ${(props) => props.theme.lightBeige};`;
-      }
-    }}
-
-    ${Section} {
-      padding: 0;
-      padding-top: 15px;
-      //padding-bottom: 60px;
-    }
-
-    ${Section}:first-child {
-      padding: 0;
-      padding-top: 200px;
-      //background-color: red;
-    }
-
-    ${Section}:last-child {
-      padding: 0px;
-      padding-bottom: 200px;
-    }
-  `;
-
   return (
     <>
       <Head>
@@ -222,7 +195,10 @@ const Gyojung = () => {
             <VDiv
               element={
                 <ImageBox vertical>
-                  <img src="/image/gyojung/gyojung_1.jpg" />
+                  <img
+                    src="/image/gyojung/gyojung_1.jpg"
+                    alt="이미지를 불러올 수 없습니다."
+                  />
                 </ImageBox>
               }
               color="beige"
@@ -537,7 +513,10 @@ const Gyojung = () => {
               element={
                 <ImageBox vertical size={["100%", null]}>
                   <div className="_div_grid">
-                    <img src="/image/gyojung/25.jpg" />
+                    <img
+                      src="/image/gyojung/25.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </div>
                 </ImageBox>
               }
@@ -562,6 +541,8 @@ const Gyojung = () => {
                         후유증을 걱정하지만 발치를 해도 안전하게 교정할 수 있는
                         여러가지 방법이 있습니다.
                       </li>
+                    </ul>
+                    <ul>
                       <li>
                         울퉁불퉁한 치열에 한이 맺힌 분들은 더 이상 그대로 늙지
                         않아도 됩니다. 만약 안되는 케이스는 사전에 하지 말라고
@@ -590,7 +571,10 @@ const Gyojung = () => {
               element={
                 <ImageBox vertical size={["100%", null]}>
                   <div className="_div_grid">
-                    <img src="/image/gyojung/28.jpg" />
+                    <img
+                      src="/image/gyojung/28.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </div>
                 </ImageBox>
               }
@@ -613,7 +597,10 @@ const Gyojung = () => {
               element={
                 <ImageBox vertical size={["100%", null]}>
                   <div className="_div_grid">
-                    <img src="/image/gyojung/31.jpg" />
+                    <img
+                      src="/image/gyojung/31.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </div>
                 </ImageBox>
               }
@@ -638,6 +625,8 @@ const Gyojung = () => {
                         환자가 의외로 많습니다. 저는 그럴 때 교정을 권하기를
                         주저하지 않습니다.
                       </li>
+                    </ul>
+                    <ul>
                       <li>
                         이번에 교통정리가 잘 되어야 한이 남는 치료가 되지 않고
                         계속 아름다우며 언젠가 보철을 다시 할 때는 간단히 보철만

@@ -26,7 +26,6 @@ const ClinicInfo = (props) => {
 
   const AddressBox = styled.div``;
 
-
   const AdressList = styled.div`
     display: flex;
     align-items: center;
@@ -48,7 +47,6 @@ const ClinicInfo = (props) => {
   return (
     <InfoBox>
       <ImgBox>
-
         <AddressBox>
           <AdressList>
             강남구 논현로 841, JB미소빌딩 B105호, 비너스치과
@@ -65,9 +63,7 @@ const ClinicInfo = (props) => {
           </AdressList>
           <AdressList>02-3445-9716</AdressList>
         </AddressBox>
-
       </ImgBox>
-
     </InfoBox>
   );
 };

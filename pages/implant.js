@@ -182,7 +182,10 @@ const Implant = () => {
               element={
                 <>
                   <ImageBox size={["500px", null]}>
-                    <img src="/image/implant/implant_2.jpg" />
+                    <img
+                      src="/image/implant/implant_2.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
                   </ImageBox>
                   <TextBox padding="50px">
                     <Text>
@@ -254,8 +257,11 @@ const Implant = () => {
                     </ul>
                     <ul>
                       <li>
-                        이는 어머니가 낳을 때 '인간'으로 낳으면 되는 것이 아니라{" "}
-                        <em>'원빈(전지현)'</em>으로 낳는 것과 같습니다.
+                        이는 어머니가 낳을 <em>인간</em>으로 낳으면 되는 것이
+                        아니라
+                      </li>
+                      <li>
+                        <em>원빈(전지현)</em>으로 낳는 것과 같습니다.
                       </li>
                     </ul>
                     <ul>
@@ -295,7 +301,6 @@ const Implant = () => {
               }
               color="white"
               padding="20px 0px 0px 0px !important"
-
             />
 
             <VDiv
