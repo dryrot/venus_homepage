@@ -7,5 +7,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 app.listen(PORT, () => {
+  console.log('!!!!!!!')
   console.log(`server started on PORT ${PORT}`);
 });
