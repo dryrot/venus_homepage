@@ -116,6 +116,7 @@ const Map2 = (props) => {
   `;
 
   useEffect(() => {
+
     const mapCenter = new window.kakao.maps.LatLng(
       37.525111197891455,
       127.02800845792338
@@ -145,7 +146,7 @@ const Map2 = (props) => {
       <MapBox>
         <script
           type="text/javascript"
-          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7bff6a5ee2158886afc9a17f94239d"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7bff6a5ee2158886afc9a17f94239d?autoload=false"
         />
         <div id="map_container" />
         <AddressBox>
