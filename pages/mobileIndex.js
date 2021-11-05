@@ -204,28 +204,28 @@ const MobileIndex = () => {
   `;
 
   useEffect(() => {
-    const mapCenter = new kakao.maps.LatLng(
-      37.525111197891455,
-      127.02800845792338
-    );
-
-    const clinicCoor = new kakao.maps.LatLng(
-      37.524060723212266,
-      127.02799512416581
-    );
-    const mapContainer = document.getElementById("map_container_mobile");
-    const markers = [
-      {
-        position: clinicCoor,
-        text: "비너스 치과",
-      },
-    ];
-    const mapOptions = {
-      center: mapCenter,
-      level: 3,
-      marker: markers,
-    };
-    const map = new kakao.maps.StaticMap(mapContainer, mapOptions);
+    // const mapCenter = new kakao.maps.LatLng(
+    //   37.525111197891455,
+    //   127.02800845792338
+    // );
+    //
+    // const clinicCoor = new kakao.maps.LatLng(
+    //   37.524060723212266,
+    //   127.02799512416581
+    // );
+    // const mapContainer = document.getElementById("map_container_mobile");
+    // const markers = [
+    //   {
+    //     position: clinicCoor,
+    //     text: "비너스 치과",
+    //   },
+    // ];
+    // const mapOptions = {
+    //   center: mapCenter,
+    //   level: 3,
+    //   marker: markers,
+    // };
+    // const map = new kakao.maps.StaticMap(mapContainer, mapOptions);
   }, []);
 
   useEffect(() => {
